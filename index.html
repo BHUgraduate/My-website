@@ -1,196 +1,752 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>अभिषेक शर्मा | BHU स्नातक & डेवलपर</title>
-    <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #ec4899;
-            --accent: #f59e0b;
-            --bg: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.07);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { box-sizing: border-box; }
+<title>अभिषेक शर्मा | Sanskrit Scholar • Developer • Educator</title>
 
-        body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
-            color: #f8fafc;
-            line-height: 1.6;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+<style>
 
-        /* Glassmorphism Profile Card */
-        .profile-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            margin-bottom: 30px;
-        }
+:root{
+    --bg:#050816;
+    --card:rgba(255,255,255,0.07);
+    --glass:rgba(255,255,255,0.08);
+    --primary:#8b5cf6;
+    --secondary:#ec4899;
+    --accent:#f59e0b;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:rgba(255,255,255,0.1);
+}
 
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 60px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        h1 { font-size: 2.5rem; margin: 10px 0; background: linear-gradient(to right, #a5b4fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        .title { color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top left,#1e1b4b 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#4c1d95 0%,transparent 30%),
+    var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
 
-        .about-text { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 25px; }
+/* Scrollbar */
 
-        /* Skill Badges */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
+::-webkit-scrollbar{
+    width:10px;
+}
 
-        .skill-tag {
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: #e2e8f0;
-        }
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--primary),var(--secondary));
+    border-radius:20px;
+}
 
-        /* Vlog Section */
-        .vlog-section {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border-radius: 25px;
-            padding: 30px;
-            margin-top: 40px;
-            border-left: 5px solid var(--primary);
-        }
+/* Navbar */
 
-        .vlog-title { color: #f472b6; font-size: 1.4rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    backdrop-filter:blur(20px);
+    background:rgba(0,0,0,0.3);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
 
-        .vlog-content { color: #94a3b8; font-size: 1rem; text-align: justify; }
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+}
 
-        /* Social Links */
-        .social-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
+.logo{
+    font-size:1.3rem;
+    font-weight:700;
+    background:linear-gradient(to right,#c084fc,#f472b6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-        .social-btn {
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 15px;
-            font-weight: bold;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+.nav-links{
+    display:flex;
+    gap:30px;
+}
 
-        .yt { background: #ef4444; color: white; }
-        .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
-        .gh { background: #333; color: white; }
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:500;
+}
 
-        .social-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); opacity: 0.9; }
+.nav-links a:hover{
+    color:#c084fc;
+}
 
-        footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.8rem; }
-    </style>
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 20px 80px;
+}
+
+.hero-content{
+    max-width:1200px;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-left h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+    background:linear-gradient(to right,#a78bfa,#f472b6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-left p{
+    color:var(--muted);
+    font-size:1.1rem;
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:15px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.primary-btn{
+    background:linear-gradient(45deg,var(--primary),var(--secondary));
+    color:white;
+    box-shadow:0 10px 30px rgba(139,92,246,0.4);
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
+    background:rgba(255,255,255,0.05);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* Profile Card */
+
+.hero-card{
+    position:relative;
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border);
+    padding:40px;
+    border-radius:35px;
+    text-align:center;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+.hero-card::before{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:linear-gradient(var(--primary),var(--secondary));
+    border-radius:50%;
+    filter:blur(120px);
+    top:-120px;
+    right:-100px;
+    opacity:0.4;
+}
+
+.profile-image{
+    width:160px;
+    height:160px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    background:linear-gradient(45deg,var(--primary),var(--secondary));
+    margin-bottom:25px;
+    border:5px solid rgba(255,255,255,0.1);
+}
+
+.hero-card h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.hero-card span{
+    color:var(--accent);
+}
+
+/* Skills */
+
+.skills{
+    padding:100px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.7rem;
+    margin-bottom:70px;
+}
+
+.skills-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.skill-card{
+    background:var(--glass);
+    border:1px solid var(--border);
+    padding:35px;
+    border-radius:25px;
+    transition:0.4s;
+    backdrop-filter:blur(15px);
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--primary);
+}
+
+.skill-card h3{
+    margin:20px 0;
+}
+
+.skill-card p{
+    color:var(--muted);
+}
+
+/* Projects */
+
+.projects{
+    padding:100px 20px;
+}
+
+.project-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:var(--glass);
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-image{
+    height:220px;
+    background:linear-gradient(45deg,#7c3aed,#ec4899);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    margin-bottom:15px;
+}
+
+.project-content p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* Timeline */
+
+.timeline{
+    padding:100px 20px;
+}
+
+.timeline-container{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline-container::before{
+    content:'';
+    position:absolute;
+    width:4px;
+    background:linear-gradient(var(--primary),var(--secondary));
+    top:0;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:30px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-box{
+    background:var(--glass);
+    padding:25px;
+    border-radius:20px;
+    border:1px solid var(--border);
+}
+
+.timeline-box h3{
+    margin-bottom:10px;
+}
+
+/* Video */
+
+.video-section{
+    padding:100px 20px;
+}
+
+.video-wrapper{
+    max-width:1000px;
+    margin:auto;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Contact */
+
+.contact{
+    padding:100px 20px;
+}
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    background:var(--glass);
+    border-radius:30px;
+    padding:50px;
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,textarea{
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    color:white;
+    font-family:'Poppins';
+}
+
+textarea{
+    min-height:150px;
+    resize:none;
+}
+
+button{
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(45deg,var(--primary),var(--secondary));
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+    padding:40px;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* Floating Glow */
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,var(--primary),transparent 70%);
+    opacity:0.12;
+    pointer-events:none;
+    z-index:-1;
+    animation:float 12s infinite alternate;
+}
+
+@keyframes float{
+    from{
+        transform:translate(-100px,-100px);
+    }
+    to{
+        transform:translate(200px,150px);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero-content{
+    grid-template-columns:1fr;
+}
+
+.hero-left h1{
+    font-size:3rem;
+}
+
+.timeline-container::before{
+    left:20px;
+}
+
+.timeline-item{
+    width:100%;
+    padding-left:60px;
+}
+
+.timeline-item:nth-child(even){
+    left:0;
+}
+
+.nav-links{
+    display:none;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
-    <!-- Profile Card -->
-    <div class="profile-card">
-        <div class="profile-img">🪈</div>
-        <span class="title">काशी हिंदू विश्वविद्यालय (BHU) स्नातक</span>
-        <h1>अभिषेक शर्मा</h1>
-        <p class="about-text">
-            नमो नमः! मैंने <b>काशी हिंदू विश्वविद्यालय</b> से संस्कृत में स्नातक की पढ़ाई पूरी की है। मैं एक जिज्ञासु शिक्षक हूँ जिसे <b>संस्कृत, गणित और विज्ञान</b> जैसे गहन विषयों को सरल भाषा में समझाने में गहरी रुचि है। इसके साथ ही मैं आधुनिक तकनीक (App Development) के माध्यम से प्राचीन भाषाओं को जोड़ रहा हूँ।
-        </p>
+<div class="glow"></div>
 
-        <div class="skills-grid">
-            <span class="skill-tag">संस्कृत व्याकरण</span>
-            <span class="skill-tag">गणित विशेषज्ञ</span>
-            <span class="skill-tag">विज्ञान शिक्षण</span>
-            <span class="skill-tag">App Development (Swift/Kotlin)</span>
-            <span class="skill-tag">वंशी वादन</span>
-        </div>
+<!-- NAVBAR -->
 
-        <!-- Social Buttons -->
-        <div class="social-links">
-            <a href="https://youtube.com/@संस्कृतस्यछात्रः" class="social-btn yt">📺 YouTube</a>
-            <a href="https://instagram.com/sanskritkavidyarthi" class="social-btn ig">📸 Instagram</a>
-            <a href="https://instagram.com/@ऋतुराजशर्मा" class="social-btn gh">🌸 Instagram</a>
-        </div>
-    </div>
+<nav>
+<div class="nav-container">
+<div class="logo">अभिषेक शर्मा</div>
 
-<!-- Vlog Section Updated -->
-<div class="vlog-section">
-    <div class="vlog-title">📖 विशेष व्लॉग: संस्कृत का मनुष्य जीवन में महत्व</div>
-    
-    <div class="vlog-content">
-        <h3>1. बौद्धिक और मानसिक विकास</h3>
-        <p>वैज्ञानिक शोध बताते हैं कि संस्कृत के श्लोकों का स्पष्ट उच्चारण हमारे मस्तिष्क की ग्रे-मैटर कोशिकाओं को सक्रिय करता है। गणित और विज्ञान के छात्र के रूप में, मैंने यह अनुभव किया है कि संस्कृत के सूत्रों को याद करने की प्रक्रिया हमारी 'मेमोरी' और 'कॉग्निटिव एबिलिटी' को बढ़ाती है।</p>
+<div class="nav-links">
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#timeline">Journey</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
 
-        <h3>2. संस्कार और अनुशासन</h3>
-        <p>"विद्या ददाति विनयं" - यह केवल एक वाक्य नहीं, बल्कि एक सत्य है। संस्कृत साहित्य हमें सिखाता है कि सफलता के शिखर पर पहुँचकर भी विनम्र कैसे रहा जाए। आज की भागदौड़ भरी ज़िंदगी में जहाँ तनाव बढ़ रहा है, वहाँ भगवद गीता और उपनिषदों के विचार हमें मानसिक शांति और अनुशासन की राह दिखाते हैं।</p>
+<!-- HERO -->
 
-        <h3>3. आधुनिक तकनीक और संस्कृत</h3>
-        <p>अक्सर लोग सोचते हैं कि संस्कृत पुरानी भाषा है, लेकिन क्या आप जानते हैं कि यह कंप्यूटर कोडिंग और AI के लिए सबसे उपयुक्त भाषाओं में से एक मानी जाती है? मैं अपने संस्कृत कीबोर्ड प्रोजेक्ट के माध्यम से यही सिद्ध करने का प्रयास कर रहा हूँ कि हम अपनी प्राचीन विरासत को नवीनतम तकनीक के साथ जोड़ सकते हैं।</p>
+<section class="hero">
 
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-        
-         <!-- YouTube Video Embed Section -->
-        <h3 style="color: var(--accent); text-align: center;">📺 मेरा टीचिंग डेमो यहाँ देखें</h3>
-        
-        <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); margin: 20px 0;">
-            <iframe 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                src="https://www.youtube.com/embed/WXU9PfSaVPE" 
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        
-        <p style="text-align: center; font-size: 0.9rem; color: #94a3b8;">
-            मेरे अन्य शैक्षणिक वीडियो देखने के लिए YouTube चैनल पर जाएँ।
-        </p>
-    </div>
+<div class="hero-content">
+
+<div class="hero-left">
+
+<h1>संस्कृत • विज्ञान • तकनीक</h1>
+
+<p>
+मैं अभिषेक शर्मा हूँ — BHU से संस्कृत स्नातक, शिक्षक, शोधकर्ता और आधुनिक ऐप डेवलपर। मेरा उद्देश्य प्राचीन भारतीय ज्ञान और आधुनिक AI तकनीक को एक साथ जोड़ना है।
+</p>
+
+<div class="hero-buttons">
+<a href="#projects" class="btn primary-btn">🚀 Explore Projects</a>
+<a href="https://youtube.com/@संस्कृतस्यछात्रः" class="btn secondary-btn">📺 YouTube</a>
 </div>
 
-        </div>
-    </div>
-
-    <footer>
-        © 2026 अभिषेक - BHU संस्कृत विद्वान | iPad के माध्यम से निर्मित
-    </footer>
 </div>
+
+<div class="hero-card">
+
+<div class="profile-image">🪈</div>
+
+<h2>अभिषेक शर्मा</h2>
+
+<span>BHU Sanskrit Graduate</span>
+
+<p style="margin-top:20px;color:var(--muted);">
+संस्कृत व्याकरण • AI • गणित • विज्ञान • Swift Development
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills" id="skills">
+
+<h2 class="section-title">✨ Expertise</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+<h3>📚 संस्कृत व्याकरण</h3>
+<p>
+पाणिनीय व्याकरण, उपनिषद, गीता, छंद और वैदिक अध्ययन।
+</p>
+</div>
+
+<div class="skill-card">
+<h3>🧠 गणित एवं विज्ञान</h3>
+<p>
+जटिल विषयों को सरल भाषा और visualization द्वारा समझाना।
+</p>
+</div>
+
+<div class="skill-card">
+<h3>💻 App Development</h3>
+<p>
+SwiftUI, iOS Apps, Sanskrit Keyboard, AI आधारित सिस्टम।
+</p>
+</div>
+
+<div class="skill-card">
+<h3>🎵 वंशी वादन</h3>
+<p>
+संगीत, ध्यान और आध्यात्मिक ध्वनि के माध्यम से मानसिक शांति।
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+<h2 class="section-title">🚀 Featured Projects</h2>
+
+<div class="project-grid">
+
+<div class="project-card">
+<div class="project-image">⌨️</div>
+
+<div class="project-content">
+<h3>Sanskrit AI Keyboard</h3>
+<p>
+AI-powered Hinglish to Sanskrit keyboard with intelligent prediction and transliteration engine.
+</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image">📖</div>
+
+<div class="project-content">
+<h3>Interactive Sanskrit Learning</h3>
+<p>
+Modern educational platform to learn Sanskrit grammar visually.
+</p>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image">🤖</div>
+
+<div class="project-content">
+<h3>AI + Sanskrit Research</h3>
+<p>
+Exploring Sanskrit as a structured language for future AI systems.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="timeline" id="timeline">
+
+<h2 class="section-title">📜 Journey</h2>
+
+<div class="timeline-container">
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>BHU Graduation</h3>
+<p>संस्कृत विषय में स्नातक पूर्ण।</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>Teaching & Vlogging</h3>
+<p>शिक्षण और ऑनलाइन शिक्षा सामग्री निर्माण।</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>Sanskrit Keyboard</h3>
+<p>AI आधारित संस्कृत इनपुट सिस्टम निर्माण।</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>Future Vision</h3>
+<p>AI + भारतीय ज्ञान प्रणाली का संगम।</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- VIDEO -->
+
+<section class="video-section">
+
+<h2 class="section-title">🎥 Teaching Demo</h2>
+
+<div class="video-wrapper">
+
+<iframe width="100%" height="560"
+src="https://www.youtube.com/embed/WXU9PfSaVPE"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="contact-box">
+
+<h2 class="section-title">📬 Contact Me</h2>
+
+<form>
+
+<input type="text" placeholder="आपका नाम">
+
+<input type="email" placeholder="ईमेल">
+
+<textarea placeholder="अपना संदेश लिखें..."></textarea>
+
+<button type="submit">Send Message 🚀</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 अभिषेक शर्मा • Sanskrit Scholar • Developer • Built with Vision & Devotion ✨
+
+</footer>
+
+<script>
+
+/* Cursor Glow */
+
+document.addEventListener('mousemove', e => {
+
+const glow = document.querySelector('.glow');
+
+glow.style.left = e.clientX - 250 + 'px';
+glow.style.top = e.clientY - 250 + 'px';
+
+});
+
+/* Scroll Animation */
+
+const cards = document.querySelectorAll('.skill-card,.project-card,.timeline-box');
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+    entry.target.style.opacity = 1;
+    entry.target.style.transform = 'translateY(0)';
+}
+
+});
+
+});
+
+cards.forEach(card => {
+
+card.style.opacity = 0;
+card.style.transform = 'translateY(50px)';
+card.style.transition = 'all 0.8s ease';
+
+observer.observe(card);
+
+});
+
+</script>
 
 </body>
 </html>
