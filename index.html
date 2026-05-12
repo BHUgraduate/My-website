@@ -3,98 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>अभिषेक - पोर्टफोलियो</title>
+    <title>अभिषेक | BHU स्नातक & डेवलपर</title>
     <style>
         :root {
             --primary: #6366f1;
-            --secondary: #a855f7;
+            --secondary: #ec4899;
+            --accent: #f59e0b;
             --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.07);
         }
 
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             margin: 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+            color: #f8fafc;
+            line-height: 1.6;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-out;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Glassmorphism Profile Card */
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             border-radius: 50%;
             margin: 0 auto 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 50px;
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            font-size: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
         }
 
-        h1 { margin: 10px 0; font-size: 2rem; background: linear-gradient(to right, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h1 { font-size: 2.5rem; margin: 10px 0; background: linear-gradient(to right, #a5b4fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        .shloka { font-style: italic; color: #94a3b8; margin-bottom: 20px; font-size: 0.9rem; }
+        .title { color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; display: block; }
 
-        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; }
-        
-        .tag { background: rgba(99, 102, 241, 0.2); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
+        .about-text { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 25px; }
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+        /* Skill Badges */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+        }
+
+        /* Vlog Section */
+        .vlog-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 40px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .vlog-title { color: #f472b6; font-size: 1.4rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+
+        .vlog-content { color: #94a3b8; font-size: 1rem; text-align: justify; }
+
+        /* Social Links */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-btn {
             text-decoration: none;
-            border-radius: 30px;
+            padding: 12px;
+            border-radius: 15px;
             font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4); }
+        .yt { background: #ef4444; color: white; }
+        .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .gh { background: #333; color: white; }
+
+        .social-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); opacity: 0.9; }
+
+        footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
+    <!-- Profile Card -->
+    <div class="profile-card">
         <div class="profile-img">🪈</div>
-        <h1>नमो नमः! मैं हूँ अभिषेक</h1>
-        <p class="shloka">"विद्या ददाति विनयं विनयाद् याति पात्रताम्"</p>
-        
-        <p>मैं बीएचयू (BHU) का छात्र हूँ और मुझे संस्कृत साहित्य, कोडिंग और वंशी वादन में रुचि है।</p>
+        <span class="title">काशी हिंदू विश्वविद्यालय (BHU) स्नातक</span>
+        <h1>अभिषेक</h1>
+        <p class="about-text">
+            नमो नमः! मैंने <b>काशी हिंदू विश्वविद्यालय</b> से संस्कृत में स्नातक की पढ़ाई पूरी की है। मैं एक जिज्ञासु शिक्षक हूँ जिसे <b>संस्कृत, गणित और विज्ञान</b> जैसे गहन विषयों को सरल भाषा में समझाने में गहरी रुचि है। इसके साथ ही मैं आधुनिक तकनीक (App Development) के माध्यम से प्राचीन भाषाओं को जोड़ रहा हूँ।
+        </p>
 
-        <div class="tags">
-            <span class="tag">संस्कृत प्रेमी</span>
-            <span class="tag">App Developer</span>
-            <span class="tag">Flute Artist</span>
-            <span class="tag">Web Design</span>
+        <div class="skills-grid">
+            <span class="skill-tag">संस्कृत व्याकरण</span>
+            <span class="skill-tag">गणित विशेषज्ञ</span>
+            <span class="skill-tag">विज्ञान शिक्षण</span>
+            <span class="skill-tag">App Development (Swift/Kotlin)</span>
+            <span class="skill-tag">वंशी वादन</span>
         </div>
 
-        <a href="https://github.com/bhugraduate" class="btn">मेरे प्रोजेक्ट्स देखें</a>
+        <!-- Social Buttons -->
+        <div class="social-links">
+            <a href="https://youtube.com/@YourChannel" class="social-btn yt">📺 YouTube</a>
+            <a href="https://instagram.com/YourInsta" class="social-btn ig">📸 Instagram</a>
+            <a href="https://github.com/bhugraduate" class="social-btn gh">📂 GitHub</a>
+        </div>
     </div>
+
+    <!-- Vlog Section -->
+    <div class="vlog-section">
+        <div class="vlog-title">📖 विशेष व्लॉग: संस्कृत का मनुष्य जीवन में महत्व</div>
+        <div class="vlog-content">
+            संस्कृत केवल एक भाषा नहीं, बल्कि एक संपूर्ण विज्ञान है। मनुष्य जीवन में इसका महत्व केवल पूजा-पाठ तक सीमित नहीं है, बल्कि यह हमारे मानसिक और बौद्धिक विकास का आधार है। 
+            <br><br>
+            जब हम संस्कृत के श्लोकों का उच्चारण करते हैं, तो हमारे मस्तिष्क के उन हिस्सों में कंपन होता है जो एकाग्रता (Concentration) और स्मरण शक्ति को बढ़ाते हैं। गणित और विज्ञान के छात्र होने के नाते, मैंने अनुभव किया है कि संस्कृत का व्याकरण (विशेषकर पाणिनीय अष्टाध्यायी) आज की कंप्यूटर कोडिंग के तर्क (Logic) के समान सटीक है。 यदि हम अपनी जड़ों से जुड़ना चाहते हैं और जीवन में अनुशासन और शांति चाहते हैं, तो संस्कृत का अध्ययन अनिवार्य है। यह हमें संस्कार और विचार की गहराई देती है।
+        </div>
+    </div>
+
+    <footer>
+        © 2026 अभिषेक - BHU संस्कृत विद्वान | iPad के माध्यम से निर्मित
+    </footer>
+</div>
 
 </body>
 </html>
