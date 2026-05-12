@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="Abhishek Sharma — Sanskrit, teaching, technology, and modern cultural portfolio with image-rich sections, transliteration, and AI assistant." />
-  <title>अभिषेक शर्मा | Sanskrit • Tech • Teaching</title>
+  <meta name="description" content="अभिषेक शर्मा का Sanskrit, tech & teaching portfolio — with Kashi imagery, improved navigation, transliteration, and a direct-answer AI assistant." />
+  <title>अभिषेक शर्मा | Sanskrit • Tech • Kashi</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,47 +13,46 @@
 
   <style>
     :root{
-      --bg:#060913;
-      --bg2:#0d1429;
+      --bg:#07111f;
+      --bg2:#0c1730;
       --card:rgba(255,255,255,.08);
       --card2:rgba(255,255,255,.12);
-      --text:#f8fafc;
-      --muted:#a7b2cc;
       --line:rgba(255,255,255,.12);
+      --text:#f8fafc;
+      --muted:#a9b7d4;
       --primary:#8b5cf6;
       --secondary:#22d3ee;
       --accent:#f472b6;
-      --gold:#f59e0b;
       --success:#34d399;
-      --shadow:0 22px 60px rgba(0,0,0,.35);
+      --shadow:0 22px 60px rgba(0,0,0,.32);
+      --radius:26px;
+      --radius2:18px;
+      --max:1220px;
       --blur:blur(18px);
-      --radius:28px;
-      --radius2:20px;
-      --max:1240px;
     }
 
     [data-theme="light"]{
       --bg:#f7f8fc;
-      --bg2:#edf2ff;
-      --card:rgba(255,255,255,.78);
-      --card2:rgba(255,255,255,.88);
-      --text:#0f172a;
-      --muted:#53627b;
+      --bg2:#eef2ff;
+      --card:rgba(255,255,255,.76);
+      --card2:rgba(255,255,255,.9);
       --line:rgba(15,23,42,.10);
-      --shadow:0 22px 55px rgba(15,23,42,.10);
+      --text:#0f172a;
+      --muted:#53637c;
+      --shadow:0 20px 50px rgba(15,23,42,.10);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 15% 20%, rgba(139,92,246,.22), transparent 24%),
-        radial-gradient(circle at 80% 10%, rgba(34,211,238,.18), transparent 24%),
-        radial-gradient(circle at 80% 85%, rgba(244,114,182,.16), transparent 24%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(circle at 15% 15%, rgba(139,92,246,.18), transparent 26%),
+        radial-gradient(circle at 88% 10%, rgba(34,211,238,.16), transparent 20%),
+        radial-gradient(circle at 85% 80%, rgba(244,114,182,.12), transparent 24%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
       overflow-x:hidden;
     }
 
@@ -65,110 +64,41 @@
       background-image:
         linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-      background-size:66px 66px;
-      mask-image:radial-gradient(circle at center, black 32%, transparent 100%);
-      opacity:.55;
+      background-size:64px 64px;
+      mask-image:radial-gradient(circle at center, black 40%, transparent 100%);
+      opacity:.45;
       z-index:0;
     }
 
-    a{color:inherit; text-decoration:none}
-    button, input, textarea, select{font:inherit}
-    ::selection{background:rgba(139,92,246,.35); color:inherit}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    ::selection{background:rgba(139,92,246,.35)}
 
-    .progress{
-      position:fixed;
-      top:0; left:0;
-      height:4px;
-      width:0%;
-      background:linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
-      z-index:1000;
-      box-shadow:0 0 18px rgba(139,92,246,.65);
-    }
-
-    .cursor-glow{
-      position:fixed;
-      width:260px; height:260px;
-      border-radius:50%;
-      pointer-events:none;
-      transform:translate(-50%, -50%);
-      background:radial-gradient(circle, rgba(139,92,246,.18), rgba(34,211,238,.08), transparent 72%);
-      filter:blur(10px);
-      mix-blend-mode:screen;
-      z-index:1;
-    }
-
-    canvas#particles{
-      position:fixed;
-      inset:0;
-      z-index:1;
-      pointer-events:none;
-      opacity:.88;
-    }
-
-    .loading{
-      position:fixed;
-      inset:0;
-      z-index:2000;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg, var(--bg), var(--bg2));
-      transition:.5s ease;
-    }
-    .loading.hide{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
-    .loader{
-      text-align:center;
-      width:min(360px, 90vw);
-    }
-    .ring{
-      width:78px;
-      height:78px;
-      margin:0 auto 18px;
-      border-radius:50%;
-      border:4px solid rgba(255,255,255,.10);
-      border-top-color:var(--secondary);
-      border-right-color:var(--primary);
-      animation:spin 1s linear infinite;
-    }
-    .loader h2{margin:0 0 8px; font-size:1.15rem}
-    .loader p{margin:0; color:var(--muted)}
-
-    .wrap{
-      position:relative;
-      z-index:2;
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 30px));
-      margin:0 auto;
-    }
+    .wrap{position:relative;z-index:2}
+    .container{width:min(var(--max), calc(100% - 32px)); margin:0 auto}
 
     .topbar{
       position:sticky;
       top:14px;
-      z-index:60;
-      width:min(var(--max), calc(100% - 18px));
+      z-index:80;
       margin:14px auto 0;
-      backdrop-filter:var(--blur);
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      width:min(var(--max), calc(100% - 18px));
       border:1px solid var(--line);
       border-radius:999px;
+      background:linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.05));
+      backdrop-filter:var(--blur);
       box-shadow:var(--shadow);
     }
-
     [data-theme="light"] .topbar{
-      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.60));
+      background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.56));
     }
 
     .topbar-inner{
       display:flex;
       align-items:center;
-      gap:14px;
       justify-content:space-between;
-      padding:11px 14px;
+      gap:14px;
+      padding:11px 15px;
     }
 
     .brand{
@@ -176,17 +106,9 @@
       align-items:center;
       gap:12px;
       min-width:0;
-      font-weight:900;
+      font-weight:800;
       letter-spacing:.2px;
     }
-    .brand small{
-      display:block;
-      color:var(--muted);
-      font-weight:600;
-      font-size:.77rem;
-      margin-top:2px;
-    }
-
     .logo{
       width:42px;
       height:42px;
@@ -195,197 +117,129 @@
       place-items:center;
       background:linear-gradient(135deg, var(--primary), var(--secondary));
       color:#fff;
-      font-size:1.12rem;
-      box-shadow:0 10px 24px rgba(139,92,246,.35);
+      box-shadow:0 12px 24px rgba(139,92,246,.32);
       flex:0 0 auto;
+      font-size:1.05rem;
+    }
+    .brand small{
+      display:block;
+      color:var(--muted);
+      font-size:.78rem;
+      font-weight:600;
+      margin-top:2px;
     }
 
-    .actions{
+    .nav{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:16px;
       flex-wrap:wrap;
-      justify-content:flex-end;
+      justify-content:center;
     }
+    .nav a{
+      color:var(--muted);
+      font-size:.92rem;
+      font-weight:700;
+      transition:.22s ease;
+    }
+    .nav a:hover{color:var(--text)}
 
-    .icon-btn, .pill-btn, .cta, .mini-btn{
-      border:0;
+    .actions{display:flex; gap:10px; align-items:center}
+    .icon-btn,.pill-btn,.cta,.chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
       cursor:pointer;
-      transition:.28s ease;
+      transition:.25s ease;
     }
-
     .icon-btn{
-      width:42px;
-      height:42px;
+      width:42px;height:42px;
       border-radius:14px;
       display:grid;
       place-items:center;
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-      color:var(--text);
-    }
-    .icon-btn:hover, .pill-btn:hover, .cta:hover, .mini-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 24px rgba(0,0,0,.16);
-    }
-
-    .pill-btn, .mini-btn{
-      border-radius:16px;
-      padding:12px 16px;
-      color:var(--text);
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
       font-weight:800;
     }
-
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+    .pill-btn,.cta{
       border-radius:16px;
       padding:13px 18px;
-      color:#fff;
-      background:linear-gradient(135deg, var(--primary), var(--secondary));
-      box-shadow:0 18px 32px rgba(34,211,238,.12);
-      font-weight:900;
-    }
-
-    .layout{
-      display:grid;
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap:18px;
-      width:min(var(--max), calc(100% - 30px));
-      margin:22px auto 0;
-      align-items:start;
-    }
-
-    .sidebar{
-      position:sticky;
-      top:88px;
-      border-radius:var(--radius);
-      padding:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      border:1px solid var(--line);
-      backdrop-filter:var(--blur);
-      box-shadow:var(--shadow);
-    }
-
-    [data-theme="light"] .sidebar{
-      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.60));
-    }
-
-    .sidebar h3{
-      margin:0 0 8px;
-      font-size:1rem;
-    }
-    .sidebar p{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.65;
-    }
-
-    .quick-nav{
-      display:grid;
-      gap:10px;
-    }
-
-    .quick-nav a, .quick-nav button, .quick-nav select{
-      width:100%;
-      display:flex;
+      font-weight:800;
+      display:inline-flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:center;
       gap:10px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      padding:12px 14px;
-      text-align:left;
+    }
+    .cta{
+      color:#fff;
+      border:0;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow:0 18px 30px rgba(34,211,238,.14);
+    }
+    .chip{
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.88rem;
       font-weight:700;
+      color:var(--muted);
     }
-
-    .quick-nav a:hover, .quick-nav button:hover, .quick-nav select:hover{
-      border-color:rgba(139,92,246,.26);
-      transform:translateY(-1px);
-    }
-
-    .quick-nav select{
-      appearance:none;
-      outline:none;
-      cursor:pointer;
-    }
-
-    .main{
-      min-width:0;
-    }
-
-    .section{
-      margin-bottom:22px;
-    }
+    .icon-btn:hover,.pill-btn:hover,.cta:hover,.chip:hover{transform:translateY(-2px)}
 
     .hero{
+      padding:56px 0 22px;
+    }
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap:18px;
+      grid-template-columns:1.08fr .92fr;
+      gap:22px;
       align-items:stretch;
     }
-
     .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      backdrop-filter:var(--blur);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
       border:1px solid var(--line);
+      backdrop-filter:var(--blur);
       box-shadow:var(--shadow);
     }
     [data-theme="light"] .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.60));
+      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.62));
     }
 
-    .hero-card, .panel, .card, .tool, .contact-card{
+    .card{
       border-radius:var(--radius);
+      padding:24px;
       overflow:hidden;
-    }
-
-    .hero-card{
-      padding:28px;
       position:relative;
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       padding:8px 14px;
       border-radius:999px;
       background:rgba(139,92,246,.14);
-      border:1px solid rgba(139,92,246,.25);
-      font-weight:800;
+      border:1px solid rgba(139,92,246,.22);
       font-size:.88rem;
-      margin-bottom:18px;
+      font-weight:800;
+      margin-bottom:16px;
     }
 
     .hero h1{
-      margin:0 0 14px;
+      margin:0 0 12px;
       font-family:"Noto Serif Devanagari", serif;
-      font-size:clamp(2.4rem, 5vw, 4.8rem);
+      font-size:clamp(2.4rem, 4.8vw, 4.6rem);
       line-height:1.03;
       letter-spacing:-.02em;
     }
-
-    .gradient-text{
+    .gradient{
       background:linear-gradient(90deg, #c4b5fd, #67e8f9, #f9a8d4);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
     }
-
-    .hero p{
-      margin:0;
+    .hero p,.section-head p,.muted,.project p,.blog p,.ai-note,.gallery p{
       color:var(--muted);
-      line-height:1.85;
-      font-size:1rem;
-      max-width:70ch;
+      line-height:1.75;
     }
+    .hero p{margin:0; font-size:1.03rem; max-width:68ch}
 
     .hero-actions{
       display:flex;
@@ -394,1165 +248,869 @@
       margin:22px 0 18px;
     }
 
-    .hero-tags{
+    .meta-row{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
+      margin-top:10px;
     }
 
-    .tag{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:700;
-      font-size:.86rem;
-    }
-
-    .side-stack{
-      display:grid;
-      gap:18px;
-    }
-
-    .profile-panel{
-      padding:24px;
-      position:relative;
-    }
-
-    .avatar{
-      width:112px;
-      height:112px;
-      border-radius:34px;
-      display:grid;
-      place-items:center;
-      margin-bottom:18px;
-      font-size:3rem;
-      background:linear-gradient(135deg, rgba(139,92,246,.92), rgba(34,211,238,.92));
-      color:#fff;
-      box-shadow:0 18px 44px rgba(139,92,246,.22);
-    }
-
-    .profile-panel h2{
-      margin:0 0 8px;
-      font-size:1.5rem;
-    }
-    .profile-panel p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .stats{
+    .site-map{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:12px;
+      gap:14px;
+      align-content:start;
     }
-
-    .stat{
+    .site-card{
       padding:18px;
       border-radius:22px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
+      min-height:118px;
+      transition:.25s ease;
     }
-    .stat strong{
+    .site-card:hover{transform:translateY(-4px); border-color:rgba(139,92,246,.25)}
+    .site-card strong{
       display:block;
-      font-size:1.85rem;
-      line-height:1;
-      margin-bottom:8px;
-      font-weight:900;
+      margin:8px 0 6px;
+      font-size:1.02rem;
     }
-    .stat span{
-      color:var(--muted);
-      font-size:.9rem;
-      font-weight:600;
-    }
-
-    .split-2{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:14px;
-      margin:0 0 16px;
-    }
-    .section-head h3{
-      margin:0;
-      font-size:1.55rem;
-      letter-spacing:-.02em;
-    }
-    .section-head p{
-      margin:0;
-      color:var(--muted);
-      max-width:66ch;
-      line-height:1.7;
-    }
-
-    .card{
-      padding:22px;
+    .site-card span{display:block; color:var(--muted); line-height:1.6; font-size:.92rem}
+    .site-card .mini{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(139,92,246,.18), rgba(34,211,238,.16));
       border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      transition:.28s ease;
+      font-size:1.1rem;
     }
 
-    .card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(139,92,246,.24);
-    }
-
-    .card h4{
-      margin:0 0 8px;
-      font-size:1.15rem;
-    }
-
-    .card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.72;
-      font-size:.95rem;
-    }
-
-    .icon{
-      width:52px;
-      height:52px;
-      border-radius:18px;
+    .image-stack{
+      margin-top:22px;
       display:grid;
-      place-items:center;
-      margin-bottom:14px;
-      background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(34,211,238,.14));
-      border:1px solid var(--line);
-      font-size:1.2rem;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
     }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
-    .photo-card{
+    .image-card{
+      border-radius:24px;
       overflow:hidden;
-      padding:0;
-    }
-
-    .photo{
       position:relative;
-      min-height:260px;
+      min-height:250px;
+      border:1px solid var(--line);
       background:#111827;
+      box-shadow:var(--shadow);
     }
-
-    .photo img{
+    .image-card img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
-      min-height:260px;
-      filter:saturate(1.08) contrast(1.04);
+      filter:saturate(1.02) contrast(1.03);
     }
-
-    .photo::after{
-      content:"";
+    .image-card .overlay{
       position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.52));
-      pointer-events:none;
-    }
-
-    .photo-label{
-      position:absolute;
-      left:16px;
-      right:16px;
-      bottom:16px;
-      z-index:2;
-      padding:14px 15px;
-      border-radius:18px;
-      background:rgba(5,10,20,.48);
+      inset:auto 0 0 0;
+      padding:18px;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.72));
       color:#fff;
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter:blur(12px);
+    }
+    .image-card .overlay h3,
+    .image-card .overlay p{
+      margin:0;
+    }
+    .image-card .overlay p{
+      margin-top:6px;
+      color:rgba(255,255,255,.84);
+      font-size:.94rem;
+      line-height:1.6;
     }
 
-    .photo-label strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:1rem;
-    }
-    .photo-label span{
-      color:rgba(255,255,255,.82);
-      font-size:.9rem;
-      line-height:1.55;
-    }
-
-    .timeline{
+    .thumb-grid{
       display:grid;
-      gap:12px;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
     }
-
-    .timeline-item{
-      display:grid;
-      grid-template-columns:120px 1fr;
-      gap:14px;
-      padding:18px 20px;
+    .thumb{
       border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#111827;
+      position:relative;
+      min-height:117px;
+    }
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+    .thumb .cap{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:12px 14px;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.75));
+      color:#fff;
+      font-size:.88rem;
+      font-weight:700;
+    }
+
+    .section{padding:26px 0}
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:1.55rem;
+      letter-spacing:-.02em;
+    }
+    .section-head p{margin:4px 0 0; max-width:64ch}
+
+    .grid-3,.grid-2{
+      display:grid;
+      gap:16px;
+    }
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+
+    .feature,.panel,.project,.blog,.contact-box,.tool,.ai{
+      border-radius:24px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
+      backdrop-filter:var(--blur);
+      box-shadow:var(--shadow);
     }
-    .timeline-item .year{
-      color:var(--secondary);
-      font-weight:900;
-      letter-spacing:.08em;
-    }
-    .timeline-item h4{
-      margin:0 0 6px;
-      font-size:1.08rem;
-    }
-    .timeline-item p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.72;
+    [data-theme="light"] .feature,
+    [data-theme="light"] .panel,
+    [data-theme="light"] .project,
+    [data-theme="light"] .blog,
+    [data-theme="light"] .contact-box,
+    [data-theme="light"] .tool,
+    [data-theme="light"] .ai{
+      background:rgba(255,255,255,.72);
     }
 
-    .showcase{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
-    .project{
-      padding:0;
-      overflow:hidden;
-    }
-
-    .project-top{
-      min-height:210px;
-      background:linear-gradient(135deg, rgba(139,92,246,.94), rgba(34,211,238,.82), rgba(244,114,182,.80));
-      position:relative;
-      isolation:isolate;
-    }
-    .project-top::before{
-      content:"";
-      position:absolute;
-      inset:16px;
-      border:1px solid rgba(255,255,255,.24);
-      border-radius:22px;
-      background:rgba(255,255,255,.08);
-      backdrop-filter:blur(10px);
-    }
-    .project-top .emoji{
-      position:absolute;
-      right:22px;
-      bottom:20px;
-      font-size:3rem;
-      z-index:2;
-    }
-
-    .project-body{
-      padding:20px;
-    }
-    .project-body .meta{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:center;
-      margin-bottom:10px;
-      flex-wrap:wrap;
-    }
-
-    .badge{
-      font-size:.74rem;
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:#fff;
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:999px;
-      padding:7px 10px;
-    }
-
-    .project h4{
-      margin:0 0 8px;
-      font-size:1.15rem;
-    }
-    .project p{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:.95rem;
-    }
-
-    .mini-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .mini{
-      padding:7px 10px;
-      border-radius:999px;
+    .feature{padding:22px}
+    .feature .icon{
+      width:50px;height:50px;border-radius:18px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(139,92,246,.18), rgba(34,211,238,.16));
       border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:.84rem;
+      font-size:1.2rem;
+      margin-bottom:12px;
     }
+    .feature h3,.project h3,.blog h3,.tool h3,.ai h3,.contact-box h3{margin:0 0 8px}
+    .feature p{margin:0; color:var(--muted); line-height:1.75}
 
-    .tool-grid{
+    .gallery{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:18px;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
     }
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+    .photo{
+      min-height:210px;
+      border-radius:22px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid var(--line);
+      background:#111827;
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .photo .overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:14px;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.74));
+      color:#fff;
+    }
+    .photo .overlay b{display:block; margin-bottom:4px}
+    .photo .overlay span{font-size:.88rem; color:rgba(255,255,255,.82)}
+
+    .panel{padding:22px}
+    .panel .quote{
+      margin:0;
+      font-family:"Noto Serif Devanagari", serif;
+      font-size:1.35rem;
+      line-height:1.55;
+      font-weight:700;
+    }
+    .panel .explain{margin:12px 0 0; color:var(--muted); line-height:1.75}
+    .btn-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
 
     .tool{
       padding:22px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
     }
-
-    .tool h4{
-      margin:0 0 8px;
-      font-size:1.18rem;
+    .tool-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:14px;
     }
-    .tool p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
+    .tool-head p{margin:0; color:var(--muted)}
     .field{
       display:grid;
       gap:8px;
-      margin-top:14px;
+      margin-bottom:12px;
     }
-
-    .field input, .field textarea, .field select{
+    .field label{font-size:.9rem; color:var(--muted); font-weight:700}
+    textarea,input,select{
       width:100%;
       border-radius:16px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.05);
       color:var(--text);
-      padding:13px 14px;
       outline:none;
+      padding:14px 15px;
+      transition:.22s ease;
+    }
+    textarea{min-height:132px; resize:vertical}
+    textarea:focus,input:focus,select:focus{
+      border-color:rgba(34,211,238,.35);
+      box-shadow:0 0 0 4px rgba(34,211,238,.10);
     }
 
-    .field textarea{
-      min-height:136px;
-      resize:vertical;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus{
-      border-color:rgba(139,92,246,.4);
-      box-shadow:0 0 0 4px rgba(139,92,246,.10);
-    }
-
-    .output{
-      margin-top:14px;
-      min-height:126px;
-      border-radius:18px;
-      border:1px dashed rgba(139,92,246,.30);
-      background:rgba(255,255,255,.04);
-      padding:16px;
-      line-height:1.85;
-      white-space:pre-wrap;
-    }
-
-    .quote-box{
-      padding:22px;
-      border:1px solid var(--line);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(34,211,238,.14), transparent 32%),
-        rgba(255,255,255,.06);
-      position:relative;
-    }
-
-    .quote-box blockquote{
-      margin:0;
-      font-family:"Noto Serif Devanagari", serif;
-      font-size:1.55rem;
-      line-height:1.5;
-      font-weight:800;
-    }
-
-    .quote-box .meaning{
-      margin-top:12px;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .actions-row{
+    .tool-actions,.ai-chips,.contact-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:16px;
+      align-items:center;
+    }
+    .result{
+      margin-top:12px;
+      padding:16px;
+      border-radius:18px;
+      border:1px dashed rgba(139,92,246,.3);
+      background:rgba(255,255,255,.04);
+      min-height:120px;
+      white-space:pre-wrap;
+      line-height:1.8;
     }
 
+    .ai{
+      padding:22px;
+    }
     .chat{
       display:flex;
       flex-direction:column;
-      min-height:440px;
+      gap:12px;
     }
-
     .chat-window{
-      flex:1;
+      min-height:290px;
+      max-height:350px;
+      overflow:auto;
       display:flex;
       flex-direction:column;
-      gap:12px;
-      padding:16px;
-      border-radius:20px;
+      gap:10px;
+      padding:14px;
+      border-radius:18px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.04);
-      overflow:auto;
-      max-height:320px;
-      margin-top:12px;
     }
-
     .msg{
-      max-width:84%;
+      max-width:86%;
       padding:12px 14px;
-      border-radius:18px;
+      border-radius:16px;
       line-height:1.7;
       font-size:.95rem;
-    }
-    .msg.user{
-      align-self:flex-end;
-      background:linear-gradient(135deg, rgba(139,92,246,.86), rgba(34,211,238,.76));
-      color:#fff;
-      border-bottom-right-radius:6px;
     }
     .msg.bot{
       align-self:flex-start;
       background:rgba(255,255,255,.08);
       border:1px solid var(--line);
-      color:var(--text);
       border-bottom-left-radius:6px;
     }
-
+    .msg.user{
+      align-self:flex-end;
+      color:#fff;
+      background:linear-gradient(135deg, rgba(139,92,246,.88), rgba(34,211,238,.78));
+      border-bottom-right-radius:6px;
+    }
     .chat-input{
       display:flex;
       gap:10px;
-      margin-top:12px;
     }
-    .chat-input input{
-      flex:1;
-      min-width:0;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      padding:14px 16px;
-      outline:none;
-    }
+    .chat-input input{flex:1; min-width:0}
     .chat-input button{
       border:0;
       border-radius:16px;
       padding:14px 16px;
-      font-weight:900;
       color:#fff;
+      font-weight:800;
       background:linear-gradient(135deg, var(--primary), var(--accent));
       cursor:pointer;
     }
 
     .blog-grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:18px;
-    }
-    .blog-card{
-      border-radius:24px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
     }
     .blog-top{
-      height:150px;
-      background:linear-gradient(135deg, rgba(139,92,246,.92), rgba(244,114,182,.82));
+      height:142px;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,.22), transparent 14%),
+        linear-gradient(135deg, rgba(139,92,246,.92), rgba(244,114,182,.82));
       position:relative;
     }
     .blog-top::after{
       content:"";
       position:absolute;
-      inset:18px;
+      inset:16px;
       border-radius:18px;
       border:1px solid rgba(255,255,255,.24);
     }
-    .blog-body{
-      padding:18px;
-    }
-    .blog-body h4{
-      margin:0 0 8px;
-      font-size:1.05rem;
-    }
-    .blog-body p{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .social-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:18px;
-    }
-    .social-card{
-      padding:22px;
-      border-radius:24px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      transition:.28s ease;
-    }
-    .social-card:hover{
-      transform:translateY(-5px);
-    }
-    .social-card .title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:10px;
-      font-weight:900;
-    }
-    .social-card p{
-      margin:0 0 12px;
-      color:var(--muted);
-      line-height:1.7;
-    }
-    .social-card a{
-      color:var(--secondary);
-      font-weight:800;
-    }
+    .blog-body{padding:18px}
+    .blog-body p{margin:0 0 14px}
 
     .contact-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:18px;
+      gap:16px;
     }
-    .contact-card{
-      padding:22px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-    }
-    .contact-card h4{margin:0 0 8px}
-    .contact-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.75;
-    }
-
-    .list{
+    .contact-box{padding:22px}
+    .info-list{
       display:grid;
-      gap:12px;
-      margin-top:18px;
+      gap:10px;
+      margin-top:14px;
     }
-    .list-item{
-      padding:14px 16px;
-      border-radius:18px;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
+    .info-item{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
     }
 
     .footer{
-      padding:30px 0 50px;
+      padding:32px 0 52px;
       text-align:center;
       color:var(--muted);
       font-size:.92rem;
     }
 
-    .floating-theme{
+    .drawer{
       position:fixed;
-      left:16px;
-      bottom:16px;
-      z-index:70;
+      top:0;
+      right:-340px;
+      width:min(90vw, 320px);
+      height:100vh;
+      z-index:120;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(9,16,32,.96), rgba(10,20,39,.98));
+      border-left:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(20px);
+      transition:.28s ease;
+      box-shadow:-30px 0 60px rgba(0,0,0,.28);
     }
-
-    .floating-music{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      z-index:70;
+    [data-theme="light"] .drawer{
+      background:linear-gradient(180deg, rgba(247,248,252,.98), rgba(239,243,255,.98));
+    }
+    .drawer.open{right:0}
+    .drawer-head{
       display:flex;
       align-items:center;
+      justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .drawer-links{
+      display:grid;
       gap:10px;
+    }
+    .drawer-links a{
       padding:14px 16px;
-      border-radius:999px;
-      background:linear-gradient(135deg, rgba(139,92,246,.92), rgba(34,211,238,.84));
-      color:#fff;
-      box-shadow:0 22px 45px rgba(0,0,0,.24);
-      border:0;
-      cursor:pointer;
-      font-weight:900;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      font-weight:800;
+      color:var(--text);
     }
 
-    .reveal{
+    .overlay-bg{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.34);
+      backdrop-filter:blur(2px);
       opacity:0;
-      transform:translateY(18px);
-      transition:.7s ease;
+      visibility:hidden;
+      transition:.25s ease;
+      z-index:110;
     }
-    .reveal.show{
-      opacity:1;
-      transform:translateY(0);
+    .overlay-bg.show{opacity:1; visibility:visible}
+
+    .float-theme{
+      position:fixed;
+      left:18px;
+      bottom:18px;
+      z-index:100;
+    }
+    .float-top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:100;
     }
 
-    .soft{color:var(--muted)}
-    .divider{
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-      margin:14px 0;
+    .reveal{opacity:0; transform:translateY(14px); transition:.6s ease}
+    .reveal.show{opacity:1; transform:translateY(0)}
+
+    .hidden-mobile{display:block}
+    .menu-btn{display:none}
+
+    @media (max-width: 1080px){
+      .hero-grid,.gallery,.grid-3,.grid-2,.blog-grid,.contact-grid{grid-template-columns:1fr}
+      .nav{display:none}
+      .menu-btn{display:grid}
+      .gallery-grid,.site-map,.image-stack{grid-template-columns:1fr}
+      .hidden-mobile{display:none}
     }
 
-    @keyframes spin{
-      to{transform:rotate(360deg)}
-    }
-    @keyframes floaty{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-8px)}
-    }
-    .float{
-      animation:floaty 5s ease-in-out infinite;
-    }
-
-    @media (max-width: 1100px){
-      .layout{grid-template-columns:1fr}
-      .sidebar{position:relative; top:auto}
-      .hero, .tool-grid, .gallery, .showcase, .blog-grid, .social-grid, .contact-grid, .split-2{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width: 760px){
-      .topbar-inner{
-        gap:10px;
-        padding:10px 12px;
-      }
+    @media (max-width: 720px){
+      .hero{padding-top:42px}
+      .card,.feature,.panel,.tool,.ai,.contact-box{padding:20px}
+      .topbar-inner{padding:10px 12px}
       .brand small{display:none}
-      .actions{gap:8px}
-      .hero-card, .profile-panel, .card, .tool, .contact-card{
-        padding:20px;
-      }
-      .stats{grid-template-columns:1fr 1fr}
-      .floating-theme{left:12px; bottom:12px}
-      .floating-music{right:12px; bottom:12px}
+      .hero-actions,.btn-row,.tool-actions,.ai-chips,.contact-actions{gap:8px}
+      .pill-btn,.cta,.chip{padding:12px 14px}
+      .float-theme{left:12px; bottom:12px}
+      .float-top{right:12px; bottom:12px}
     }
 
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
-      *, *::before, *::after{
-        animation:none !important;
-        transition:none !important;
-      }
+      *,*::before,*::after{animation:none !important; transition:none !important}
     }
   </style>
 </head>
-
 <body>
-  <div class="loading" id="loading">
-    <div class="loader">
-      <div class="ring"></div>
-      <h2>Loading premium Sanskrit experience</h2>
-      <p>Preparing images, motion, and interaction.</p>
-    </div>
-  </div>
-
-  <div class="progress" id="progress"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <canvas id="particles"></canvas>
-
   <div class="wrap">
-    <header class="topbar" aria-label="Top navigation">
+    <div class="overlay-bg" id="overlayBg"></div>
+
+    <aside class="drawer" id="drawer" aria-label="Site menu">
+      <div class="drawer-head">
+        <strong>Quick menu</strong>
+        <button class="icon-btn" id="closeDrawer" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="#overview">Overview</a>
+        <a href="#gallery">Kashi gallery</a>
+        <a href="#translator">Translator</a>
+        <a href="#assistant">Ask AI</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </aside>
+
+    <header class="topbar">
       <div class="topbar-inner">
-        <a class="brand" href="#home" aria-label="Go to home">
+        <a class="brand" href="#overview">
           <div class="logo">ॐ</div>
           <div>
             अभिषेक शर्मा
-            <small>Sanskrit • Tech • Teaching</small>
+            <small>BHU • Sanskrit • Tech • Teaching</small>
           </div>
         </a>
 
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#overview">Overview</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#translator">Translator</a>
+          <a href="#assistant">Ask AI</a>
+          <a href="#notes">Notes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
         <div class="actions">
+          <button class="icon-btn menu-btn" id="openDrawer" aria-label="Open menu">☰</button>
           <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☾</button>
-          <a class="pill-btn" href="#contact">Contact</a>
         </div>
       </div>
     </header>
 
-    <div class="layout" id="home">
-      <aside class="sidebar glass reveal">
-        <h3>Quick pages</h3>
-        <p>Cleaner navigation, fewer tabs, better flow.</p>
-
-        <div class="quick-nav">
-          <select id="pageSelect" aria-label="Quick page selector">
-            <option value="home">Home</option>
-            <option value="about">About</option>
-            <option value="gallery">Gallery</option>
-            <option value="timeline">Timeline</option>
-            <option value="projects">Projects</option>
-            <option value="tools">Tools</option>
-            <option value="assistant">Ask AI</option>
-            <option value="blog">Blog</option>
-            <option value="social">Social</option>
-            <option value="contact">Contact</option>
-          </select>
-
-          <a href="#home">Home <span>↗</span></a>
-          <a href="#projects">Projects <span>↗</span></a>
-          <a href="#tools">Tools <span>↗</span></a>
-          <a href="#assistant">AI Assistant <span>↗</span></a>
-          <a href="#contact">Download / Contact <span>↗</span></a>
-        </div>
-      </aside>
-
-      <main class="main">
-        <section class="section hero">
-          <div class="hero-card glass reveal">
-            <div class="eyebrow">✨ Ultra-modern cultural portfolio with real visuals</div>
-            <h1><span class="gradient-text">संस्कृत</span> को <span class="gradient-text">modern web</span> की premium भाषा में दिखाना</h1>
+    <main>
+      <section class="hero" id="overview">
+        <div class="container hero-grid">
+          <div class="card glass reveal">
+            <div class="eyebrow">✨ Sanskrit learning with Kashi visuals and a cleaner structure</div>
+            <h1><span class="gradient">संस्कृत</span> को modern, calm, and image-rich experience में बदलना</h1>
             <p>
-              यह version ज्यादा clean है, ज्यादा spacious है, और इसमें images, sections, quick pages, better transliteration,
-              smarter AI replies, and a calmer visual hierarchy दी गई है। Kashi ghats, Ganga Arati, spirituality, and modern perspective
-              को cultural dignity के साथ present किया गया है।
+              This redesign removes the crowded tab feel, adds a stronger visual story, and gives the website a guided layout.
+              The page now leads people through a clear menu, cultural imagery, transliteration, and a better Ask AI area.
             </p>
 
             <div class="hero-actions">
-              <a class="cta" href="#gallery">View Images →</a>
-              <a class="pill-btn" href="#assistant">Try AI</a>
-              <a class="pill-btn" href="#tools">Use Translator</a>
+              <a class="cta" href="#gallery">See Kashi gallery →</a>
+              <a class="pill-btn" href="#translator">Open translator</a>
+              <a class="pill-btn" href="#assistant">Try Ask AI</a>
             </div>
 
-            <div class="hero-tags">
-              <span class="tag">Mobile-first</span>
-              <span class="tag">Glassmorphism</span>
-              <span class="tag">SEO-ready</span>
-              <span class="tag">Smooth motion</span>
-              <span class="tag">Real image blocks</span>
+            <div class="meta-row">
+              <span class="chip">📷 Real images</span>
+              <span class="chip">🧭 Option list</span>
+              <span class="chip">🧠 Better AI answers</span>
+              <span class="chip">🔤 Sanskrit transliteration</span>
+            </div>
+
+            <div class="image-stack">
+              <div class="image-card">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evening%20Ganga%20Aarti%20at%20Dashashwamedh%20ghat%2C%20Varanasi.jpg" alt="Evening Ganga Aarti at Dashashwamedh Ghat, Varanasi">
+                <div class="overlay">
+                  <h3>Ganga Aarti • Kashi</h3>
+                  <p>Spiritual rhythm, lamps, river light, and living tradition.</p>
+                </div>
+              </div>
+              <div class="thumb-grid">
+                <div class="thumb">
+                  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%2C%20India%2C%20Ghats.jpg" alt="Varanasi ghats by the river">
+                  <div class="cap">Ghats and riverfront</div>
+                </div>
+                <div class="thumb">
+                  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%20Munshi%20Ghat3.jpg" alt="Munshi Ghat in Varanasi">
+                  <div class="cap">Kashi heritage view</div>
+                </div>
+                <div class="thumb">
+                  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Assi%20Ghat%2C%20Varanasi.JPG" alt="Assi Ghat Varanasi">
+                  <div class="cap">Assi Ghat atmosphere</div>
+                </div>
+                <div class="thumb">
+                  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%2C%20India%2C%20Ganges%20River%2C%20ghats%2C%20temples%20and%20embankments.jpg" alt="Varanasi temples and embankments on the Ganges">
+                  <div class="cap">Modern Kashi context</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="side-stack">
-            <div class="profile-panel glass reveal float">
-              <div class="avatar">🪷</div>
-              <h2>अभिषेक शर्मा</h2>
-              <p>
-                BHU inspiration, Sanskrit teaching mindset, mathematics clarity, science understanding, and modern app thinking — all presented with cultural balance.
+          <aside class="card glass reveal">
+            <div class="section-head" style="margin-bottom:14px">
+              <div>
+                <h2 style="font-size:1.35rem;margin:0">Quick menu</h2>
+                <p style="margin-top:6px">This acts like a page map instead of many scattered tabs.</p>
+              </div>
+            </div>
+
+            <div class="site-map">
+              <a class="site-card" href="#overview">
+                <div class="mini">1</div>
+                <strong>Overview</strong>
+                <span>Clear starting point with a premium hero and image story.</span>
+              </a>
+              <a class="site-card" href="#gallery">
+                <div class="mini">2</div>
+                <strong>Kashi gallery</strong>
+                <span>Ghats, Aarti, and cultural imagery in one polished block.</span>
+              </a>
+              <a class="site-card" href="#translator">
+                <div class="mini">3</div>
+                <strong>Translator</strong>
+                <span>Best-effort Sanskrit output with Sanscript support.</span>
+              </a>
+              <a class="site-card" href="#assistant">
+                <div class="mini">4</div>
+                <strong>Ask AI</strong>
+                <span>Direct answers, not endless follow-up questions.</span>
+              </a>
+              <a class="site-card" href="#notes">
+                <div class="mini">5</div>
+                <strong>Notes & blog</strong>
+                <span>Content cards for teaching, writing, and updates.</span>
+              </a>
+              <a class="site-card" href="#contact">
+                <div class="mini">6</div>
+                <strong>Contact</strong>
+                <span>Form and download area for real-world use.</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <h2>Kashi gallery</h2>
+              <p>Images carry the cultural feeling, while the copy keeps the modern perspective grounded in context.</p>
+            </div>
+          </div>
+
+          <div class="gallery reveal">
+            <div class="panel">
+              <p class="quote">“काशी सिर्फ एक शहर नहीं, बल्कि परंपरा, अध्ययन, भक्ति और जीवंत आधुनिकता का संगम है।”</p>
+              <p class="explain">
+                The design uses real imagery from Varanasi ghats and Ganga Aarti so the website feels rooted in place.
+                This makes the portfolio look less empty and more like a story-driven digital identity.
               </p>
-              <div class="divider"></div>
-              <div class="tag-row hero-tags">
-                <span class="tag">संस्कृत व्याकरण</span>
-                <span class="tag">गणित विशेषज्ञ</span>
-                <span class="tag">विज्ञान शिक्षण</span>
-                <span class="tag">Swift / Kotlin</span>
+              <div class="btn-row">
+                <a class="pill-btn" href="#translator">Try Sanskrit text</a>
+                <a class="pill-btn" href="#assistant">Ask AI about Kashi</a>
               </div>
             </div>
 
-            <div class="stats reveal">
-              <div class="stat glass"><strong data-count="120">0</strong><span>Study notes</span></div>
-              <div class="stat glass"><strong data-count="35">0</strong><span>Creative ideas</span></div>
-              <div class="stat glass"><strong data-count="8">0</strong><span>Learning tools</span></div>
-              <div class="stat glass"><strong data-count="99">0</strong><span>Energy level</span></div>
+            <div class="gallery-grid">
+              <div class="photo">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Evening%20Ganga%20Aarti%20at%20Dashashwamedh%20ghat%2C%20Varanasi.jpg" alt="Evening Ganga Aarti at Dashashwamedh Ghat">
+                <div class="overlay"><b>Ganga Aarti</b><span>Spiritual event lighting the riverside</span></div>
+              </div>
+              <div class="photo">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%2C%20India%2C%20Ghats%20and%20embankments.jpg" alt="Varanasi ghats and embankments">
+                <div class="overlay"><b>Ghats & embankments</b><span>Urban life meeting sacred geography</span></div>
+              </div>
+              <div class="photo">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%20Munshi%20Ghat3.jpg" alt="Munshi Ghat, Varanasi">
+                <div class="overlay"><b>Munshi Ghat</b><span>Heritage architecture by the Ganga</span></div>
+              </div>
+              <div class="photo">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Assi%20Ghat%2C%20Varanasi.JPG" alt="Assi Ghat, Varanasi">
+                <div class="overlay"><b>Assi Ghat</b><span>Morning calm, study, and reflection</span></div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section" id="about">
+      <section class="section" id="overview-2">
+        <div class="container">
           <div class="section-head reveal">
             <div>
-              <h3>About & vision</h3>
-              <p>A polished, less crowded structure with more breathing space and a stronger identity.</p>
+              <h2>What changed here</h2>
+              <p>Cleaner navigation, fewer visual collisions, and stronger storytelling.</p>
             </div>
           </div>
 
-          <div class="split-2">
-            <article class="card glass reveal">
+          <div class="grid-3">
+            <article class="feature reveal">
               <div class="icon">✦</div>
-              <h4>Clear structure</h4>
-              <p>Sections are separated so the page feels premium, readable, and easier to explore on mobile and desktop.</p>
+              <h3>Less clutter</h3>
+              <p>The top area is now a guided map, not a crowded pile of tabs. The menu can open as a side drawer on mobile.</p>
             </article>
-
-            <article class="card glass reveal">
-              <div class="icon">⚙</div>
-              <h4>Cultural modernism</h4>
-              <p>Kashi and Ganga visuals are used alongside a clean contemporary layout so tradition and technology feel connected.</p>
+            <article class="feature reveal">
+              <div class="icon">🖼</div>
+              <h3>More imagery</h3>
+              <p>Real Kashi images create atmosphere and keep the page from feeling text-heavy or empty.</p>
+            </article>
+            <article class="feature reveal">
+              <div class="icon">🧭</div>
+              <h3>Better flow</h3>
+              <p>Sections now move from identity to gallery to tools to AI to contact in a simple path.</p>
             </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section" id="gallery">
+      <section class="section" id="translator">
+        <div class="container">
           <div class="section-head reveal">
             <div>
-              <h3>Image gallery</h3>
-              <p>Use these as real visual anchors. Each card has a cultural tone with a modern editorial presentation.</p>
+              <h2>Sanskrit translator</h2>
+              <p>The page uses the GitHub-published Sanscript library for script conversion, plus a small phrase layer for common Sanskrit outputs.</p>
             </div>
           </div>
 
-          <div class="gallery">
-            <article class="card photo-card glass reveal">
-              <div class="photo">
-                <img
-                  src="https://source.unsplash.com/1600x1000/?varanasi,ghats,ganga"
-                  alt="Kashi ghats by the river"
-                  loading="lazy"
-                />
-                <div class="photo-label">
-                  <strong>Kashi Ghats</strong>
-                  <span>Stone steps, river light, timeless spiritual rhythm, and a calm heritage feel.</span>
+          <div class="grid-2">
+            <div class="tool reveal">
+              <div class="tool-head">
+                <div>
+                  <h3>Text input</h3>
+                  <p>English / Hindi / Sanskrit style input</p>
                 </div>
-              </div>
-            </article>
-
-            <article class="card photo-card glass reveal">
-              <div class="photo">
-                <img
-                  src="https://source.unsplash.com/1600x1000/?ganga,aarti,varanasi"
-                  alt="Ganga Aarti scene"
-                  loading="lazy"
-                />
-                <div class="photo-label">
-                  <strong>Ganga Arati</strong>
-                  <span>Lamps, devotion, incense, and riverfront ambience in a premium visual frame.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card photo-card glass reveal">
-              <div class="photo">
-                <img
-                  src="https://source.unsplash.com/1600x1000/?india,spiritual,temple,light"
-                  alt="Spiritual atmosphere"
-                  loading="lazy"
-                />
-                <div class="photo-label">
-                  <strong>Spiritual Context</strong>
-                  <span>Warm light, sacred architecture, and a subtle devotional atmosphere.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card photo-card glass reveal">
-              <div class="photo">
-                <img
-                  src="https://source.unsplash.com/1600x1000/?indian,student,laptop,study"
-                  alt="Modern perspective and study environment"
-                  loading="lazy"
-                />
-                <div class="photo-label">
-                  <strong>Modern Perspective</strong>
-                  <span>Technology, study, and cultural continuity presented together.</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="timeline">
-          <div class="section-head reveal">
-            <div>
-              <h3>Timeline & achievements</h3>
-              <p>Shorter, cleaner, and more elegant than crowded tabs.</p>
-            </div>
-          </div>
-
-          <div class="timeline">
-            <div class="timeline-item glass reveal">
-              <div class="year">2022</div>
-              <div>
-                <h4>Strong foundation</h4>
-                <p>Built confidence in Sanskrit reading, explanation, and practical teaching style.</p>
-              </div>
-            </div>
-            <div class="timeline-item glass reveal">
-              <div class="year">2024</div>
-              <div>
-                <h4>Tech integration</h4>
-                <p>Started shaping digital tools, UI systems, transliteration ideas, and app concepts.</p>
-              </div>
-            </div>
-            <div class="timeline-item glass reveal">
-              <div class="year">2026</div>
-              <div>
-                <h4>Premium portfolio evolution</h4>
-                <p>This version adds images, clean navigation, better assistant replies, and a more professional flow.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="projects">
-          <div class="section-head reveal">
-            <div>
-              <h3>Projects showcase</h3>
-              <p>Product-style cards for the Sanskrit keyboard, AI, blog, and downloadable resources.</p>
-            </div>
-          </div>
-
-          <div class="showcase">
-            <article class="card project glass reveal">
-              <div class="project-top">
-                <div class="emoji">⌨</div>
-              </div>
-              <div class="project-body">
-                <div class="meta">
-                  <span class="badge">Keyboard</span>
-                  <span class="soft">Interactive demo</span>
-                </div>
-                <h4>Sanskrit Keyboard Project</h4>
-                <p>Transliteration, suggestion flow, and an elegant typing experience for Sanskrit learners.</p>
-                <div class="mini-row">
-                  <span class="mini">Swift</span>
-                  <span class="mini">Suggestions</span>
-                  <span class="mini">Responsive UI</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card project glass reveal">
-              <div class="project-top" style="background:linear-gradient(135deg, rgba(34,211,238,.88), rgba(16,185,129,.78), rgba(139,92,246,.78));">
-                <div class="emoji">🧠</div>
-              </div>
-              <div class="project-body">
-                <div class="meta">
-                  <span class="badge">AI</span>
-                  <span class="soft">Assistant-ready</span>
-                </div>
-                <h4>AI Sanskrit Assistant</h4>
-                <p>Helpful replies for shlokas, grammar, transliteration, and site guidance without random question-bouncing.</p>
-                <div class="mini-row">
-                  <span class="mini">Direct answers</span>
-                  <span class="mini">Learning mode</span>
-                  <span class="mini">Future backend</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="tools">
-          <div class="section-head reveal">
-            <div>
-              <h3>Sanskrit learning tools</h3>
-              <p>Transliteration is now more useful, and the translation box is clearer about what it does.</p>
-            </div>
-          </div>
-
-          <div class="tool-grid">
-            <div class="tool glass reveal">
-              <h4>Live transliterator + phrase translator</h4>
-              <p>Type Roman text, English words, or simple Hindi phrases. The tool will try to convert common inputs into Sanskrit-style output.</p>
-
-              <div class="field">
-                <label for="translateInput" class="soft">Input</label>
-                <input id="translateInput" type="text" placeholder="Try: namaste, dharma, peace, मेरा नाम..." />
               </div>
 
               <div class="field">
-                <label for="translateMode" class="soft">Mode</label>
-                <select id="translateMode">
-                  <option value="auto">Auto</option>
-                  <option value="transliterate">Transliterate Roman text</option>
-                  <option value="translate">Translate common phrases</option>
-                </select>
+                <label for="srcText">Type here</label>
+                <textarea id="srcText" placeholder="Try: good morning, namaste, shanti, Kashi, Ganga, I am a student"></textarea>
               </div>
 
-              <div class="output" id="translateOutput">देवनागरी output यहाँ दिखेगा।</div>
-
-              <div class="actions-row">
-                <button class="mini-btn" id="copyTranslation">Copy output</button>
-                <button class="mini-btn" id="sampleEnglish">English sample</button>
-                <button class="mini-btn" id="sampleHindi">Hindi sample</button>
-              </div>
-            </div>
-
-            <div class="tool glass reveal">
-              <h4>Interactive श्लोक of the day</h4>
-              <div class="quote-box">
-                <blockquote id="shlokaText">विद्या ददाति विनयम्।</blockquote>
-                <div class="meaning" id="shlokaMeaning">Knowledge gives humility, steadiness, and respect.</div>
-                <div class="actions-row">
-                  <button class="mini-btn" id="nextShloka">Next shloka</button>
-                  <button class="mini-btn" id="copyShloka">Copy shloka</button>
+              <div class="grid-2">
+                <div class="field">
+                  <label for="mode">Mode</label>
+                  <select id="mode">
+                    <option value="translate">Best-effort Sanskrit</option>
+                    <option value="transliterate">Script transliteration</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="target">Target script</label>
+                  <select id="target">
+                    <option value="devanagari">Devanagari</option>
+                    <option value="iast">IAST</option>
+                    <option value="hk">Harvard-Kyoto</option>
+                    <option value="itrans">ITRANS</option>
+                  </select>
                 </div>
               </div>
 
-              <div class="divider"></div>
+              <div class="tool-actions">
+                <button class="cta" id="runTranslate">Translate / Convert</button>
+                <button class="pill-btn" id="copyTranslate">Copy output</button>
+                <button class="pill-btn" id="clearTranslate">Clear</button>
+              </div>
+            </div>
 
-              <p class="soft">This section can later connect to a real Sanskrit dictionary, saved notes, and a learning database.</p>
+            <div class="tool reveal">
+              <div class="tool-head">
+                <div>
+                  <h3>Output</h3>
+                  <p>Readable result with fallback to transliteration when needed</p>
+                </div>
+              </div>
+              <div class="result" id="translateOut">Your output will appear here.</div>
+              <p class="ai-note" style="margin:12px 0 0">
+                This is a best-effort front-end translator. Full language translation is hard, so the page uses a phrase map plus script conversion for a more useful result.
+              </p>
+              <div class="meta-row" style="margin-top:14px">
+                <span class="chip">सुप्रभातम्</span>
+                <span class="chip">धन्यवादः</span>
+                <span class="chip">शान्तिः</span>
+                <span class="chip">कथं अस्ति</span>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section" id="assistant">
+      <section class="section" id="assistant">
+        <div class="container">
           <div class="section-head reveal">
             <div>
-              <h3>Ask AI</h3>
-              <p>The assistant now gives direct helpful responses instead of bouncing the user with another question.</p>
+              <h2>Ask AI</h2>
+              <p>The assistant now answers directly with short, relevant replies instead of bouncing back with another question.</p>
             </div>
           </div>
 
-          <div class="tool glass chat reveal">
-            <div class="chat-window" id="chatWindow" aria-live="polite">
-              <div class="msg bot">नमस्ते। I can help with Sanskrit grammar, shlokas, translation help, keyboard ideas, site structure, and study planning.</div>
+          <div class="ai reveal">
+            <div class="ai-chips" style="margin-bottom:12px">
+              <button class="chip" data-prompt="Tell me about Kashi in a modern but cultural way.">Kashi</button>
+              <button class="chip" data-prompt="Explain this website structure simply.">Website structure</button>
+              <button class="chip" data-prompt="How can I improve the Sanskrit translator section?">Translator help</button>
+              <button class="chip" data-prompt="Give a better answer for Sanskrit keyboard users.">Keyboard help</button>
+              <button class="chip" data-prompt="How should the contact page look?">Contact page</button>
             </div>
 
-            <div class="chat-input">
-              <input id="chatInput" type="text" placeholder="Ask anything..." aria-label="Ask the AI assistant">
-              <button id="sendChat">Send</button>
-            </div>
-
-            <div class="soft" style="margin-top:10px;">
-              Try: “Explain Bhagavad Gita in simple words”, “What is Sanskrit transliteration?”, “Help me improve this site”.
+            <div class="chat">
+              <div class="chat-window" id="chatWindow" aria-live="polite">
+                <div class="msg bot">नमस्ते! I give direct answers for your website, Sanskrit content, Kashi storytelling, keyboard ideas, and layout improvements.</div>
+              </div>
+              <div class="chat-input">
+                <input id="chatInput" type="text" placeholder="Ask something about the site or Sanskrit..." aria-label="Ask AI input">
+                <button id="sendChat">Send</button>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section" id="blog">
+      <section class="section" id="notes">
+        <div class="container">
           <div class="section-head reveal">
             <div>
-              <h3>Blog / vlog cards</h3>
-              <p>Cleaner editorial cards for articles, teachings, and video content.</p>
+              <h2>Notes, blog, and learning cards</h2>
+              <p>These cards are calmer than the older version and feel more like a real content system.</p>
             </div>
           </div>
 
           <div class="blog-grid">
-            <article class="blog-card glass reveal">
+            <article class="blog reveal">
               <div class="blog-top"></div>
               <div class="blog-body">
-                <h4>संस्कृत और मन की clarity</h4>
-                <p>Why sound, rhythm, and structured language help memory and focused learning.</p>
-                <a class="soft" href="#contact" style="font-weight:800;">Read more →</a>
+                <h3>संस्कृत और आधुनिक सीख</h3>
+                <p>How tradition and interface design can work together without losing clarity.</p>
+                <a class="chip" href="#contact">Open note</a>
               </div>
             </article>
 
-            <article class="blog-card glass reveal">
+            <article class="blog reveal">
               <div class="blog-top" style="background:linear-gradient(135deg, rgba(34,211,238,.92), rgba(16,185,129,.82));"></div>
               <div class="blog-body">
-                <h4>Teaching with modern UI</h4>
-                <p>Educational content feels stronger when the presentation is elegant and easy to follow.</p>
-                <a class="soft" href="#contact" style="font-weight:800;">Read more →</a>
+                <h3>Teaching with images</h3>
+                <p>Using Kashi ghats, Aarti, and river scenes to create stronger cultural context.</p>
+                <a class="chip" href="#gallery">View gallery</a>
               </div>
             </article>
 
-            <article class="blog-card glass reveal">
+            <article class="blog reveal">
               <div class="blog-top" style="background:linear-gradient(135deg, rgba(245,158,11,.92), rgba(244,114,182,.82));"></div>
               <div class="blog-body">
-                <h4>From keyboard to platform</h4>
-                <p>Your keyboard idea can grow into a complete ecosystem for learning, notes, and media.</p>
-                <a class="soft" href="#contact" style="font-weight:800;">Read more →</a>
+                <h3>From idea to platform</h3>
+                <p>Your keyboard, AI help, and portfolio can grow into one connected product family.</p>
+                <a class="chip" href="#assistant">Try AI</a>
               </div>
             </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section" id="social">
+      <section class="section" id="contact">
+        <div class="container">
           <div class="section-head reveal">
             <div>
-              <h3>Social cards</h3>
-              <p>Simple, polished cards for external platforms.</p>
-            </div>
-          </div>
-
-          <div class="social-grid">
-            <div class="social-card glass reveal">
-              <div class="title">📺 YouTube</div>
-              <p>Teaching demos, Sanskrit lessons, and knowledge videos.</p>
-              <a href="https://youtube.com/@संस्कृतस्यछात्रः" target="_blank" rel="noopener">Open channel →</a>
-            </div>
-
-            <div class="social-card glass reveal">
-              <div class="title">📸 Instagram</div>
-              <p>Short updates, reels, and creative academic presence.</p>
-              <a href="https://instagram.com/sanskritkavidyarthi" target="_blank" rel="noopener">Open profile →</a>
-            </div>
-
-            <div class="social-card glass reveal">
-              <div class="title">🌸 Instagram</div>
-              <p>Secondary profile card for personal or creative identity.</p>
-              <a href="https://instagram.com/@ऋतुराजशर्मा" target="_blank" rel="noopener">Open profile →</a>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="contact">
-          <div class="section-head reveal">
-            <div>
-              <h3>Contact & download</h3>
-              <p>Professional call-to-action area with clean spacing and clear actions.</p>
+              <h2>Contact and download</h2>
+              <p>Simple, professional, and ready to connect to a backend later if needed.</p>
             </div>
           </div>
 
           <div class="contact-grid">
-            <form class="contact-card glass reveal" onsubmit="return false;">
+            <div class="contact-box reveal">
+              <h3>Send a message</h3>
               <div class="field">
-                <label for="name" class="soft">Name</label>
+                <label for="name">Name</label>
                 <input id="name" type="text" placeholder="Your name">
               </div>
-
               <div class="field">
-                <label for="email" class="soft">Email</label>
+                <label for="email">Email</label>
                 <input id="email" type="email" placeholder="you@example.com">
               </div>
-
               <div class="field">
-                <label for="message" class="soft">Message</label>
-                <textarea id="message" placeholder="Tell me about your project, collaboration, or learning need..."></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Tell me about your project or collaboration..."></textarea>
               </div>
-
-              <div class="actions-row">
-                <button class="cta" id="sendForm" type="button">Send Message</button>
+              <div class="contact-actions">
+                <button class="cta" id="sendForm">Send message</button>
                 <a class="pill-btn" href="#" download>Download CV</a>
               </div>
-            </form>
+            </div>
 
-            <div class="contact-card glass reveal">
-              <h4>What this can become next</h4>
-              <p>
-                This clean front-end is now ready for real backend features like login/signup, blog CMS, notes download,
-                Firebase connection, admin dashboard, offline support, PWA mode, SEO setup, and monetization.
+            <div class="contact-box reveal">
+              <h3>Why this version feels better</h3>
+              <p class="muted">
+                It gives the page a cleaner hierarchy, a visible page map, cultural images, a stronger translator, and an AI area that gives answers instead of more questions.
               </p>
-
-              <div class="list">
-                <div class="list-item"><span>Login / Signup</span><strong>Ready</strong></div>
-                <div class="list-item"><span>Database</span><strong>Firebase / SQL</strong></div>
-                <div class="list-item"><span>CMS</span><strong>Blog + Notes</strong></div>
-                <div class="list-item"><span>SEO</span><strong>Built-in foundation</strong></div>
+              <div class="info-list">
+                <div class="info-item"><span>Navigation</span><strong>Option list + drawer</strong></div>
+                <div class="info-item"><span>Images</span><strong>Kashi ghats & Aarti</strong></div>
+                <div class="info-item"><span>Translator</span><strong>Sanscript + phrases</strong></div>
+                <div class="info-item"><span>Ask AI</span><strong>Direct intent replies</strong></div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <footer class="footer">
-          © 2026 अभिषेक शर्मा — Sanskrit • culture • technology
-        </footer>
-      </main>
-    </div>
+      <footer class="footer">© 2026 अभिषेक शर्मा — Sanskrit • Tech • Teaching</footer>
+    </main>
+
+    <button class="icon-btn float-theme" id="themeToggle2" aria-label="Toggle theme">☀</button>
+    <button class="icon-btn float-top" id="topBtn" aria-label="Go to top">↑</button>
   </div>
 
-  <button class="icon-btn floating-theme" id="themeToggle2" aria-label="Toggle theme">☀</button>
-  <button class="floating-music" id="musicBtn" aria-label="Play flute ambience">🎵 Music</button>
-
+  <script src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript@1.3.3/sanscript.js"></script>
   <script>
     const root = document.documentElement;
-    const loading = document.getElementById('loading');
-    const progress = document.getElementById('progress');
-    const glow = document.getElementById('cursorGlow');
-    const pageSelect = document.getElementById('pageSelect');
     const themeToggle = document.getElementById('themeToggle');
     const themeToggle2 = document.getElementById('themeToggle2');
-
-    // Theme
+    const topBtn = document.getElementById('topBtn');
     const savedTheme = localStorage.getItem('theme') || 'dark';
     root.setAttribute('data-theme', savedTheme);
     syncThemeIcons(savedTheme);
 
     function syncThemeIcons(theme){
-      const isLight = theme === 'light';
-      themeToggle.textContent = isLight ? '☀' : '☾';
-      themeToggle2.textContent = isLight ? '☾' : '☀';
+      const light = theme === 'light';
+      themeToggle.textContent = light ? '☀' : '☾';
+      themeToggle2.textContent = light ? '☾' : '☀';
     }
 
     function toggleTheme(){
@@ -1565,306 +1123,165 @@
     themeToggle.addEventListener('click', toggleTheme);
     themeToggle2.addEventListener('click', toggleTheme);
 
-    // Loading
-    window.addEventListener('load', () => {
-      setTimeout(() => loading.classList.add('hide'), 650);
-    });
-
-    // Progress
-    window.addEventListener('scroll', () => {
-      const doc = document.documentElement;
-      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
-      progress.style.width = pct + '%';
-    });
-
-    // Cursor glow
-    window.addEventListener('pointermove', (e) => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
-
-    // Quick pages
-    pageSelect.addEventListener('change', () => {
-      document.getElementById(pageSelect.value).scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Reveal on scroll
     const revealEls = document.querySelectorAll('.reveal');
-    const revealIO = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
+        if(entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.12 });
-    revealEls.forEach(el => revealIO.observe(el));
+    revealEls.forEach(el => io.observe(el));
 
-    // Counters
-    const counters = document.querySelectorAll('[data-count]');
-    const countIO = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseInt(el.dataset.count, 10);
-        let cur = 0;
-        const step = Math.max(1, Math.ceil(target / 60));
-        const timer = setInterval(() => {
-          cur += step;
-          if (cur >= target) {
-            cur = target;
-            clearInterval(timer);
-          }
-          el.textContent = cur + (target === 99 ? '%' : '+');
-        }, 18);
-        countIO.unobserve(el);
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(el => countIO.observe(el));
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Image fallback SVGs
-    function svgData(title, subtitle) {
-      const svg =
-        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#111827"/>
-              <stop offset="50%" stop-color="#1f2937"/>
-              <stop offset="100%" stop-color="#312e81"/>
-            </linearGradient>
-            <radialGradient id="r" cx="35%" cy="30%" r="80%">
-              <stop offset="0%" stop-color="#67e8f9" stop-opacity=".38"/>
-              <stop offset="45%" stop-color="#8b5cf6" stop-opacity=".20"/>
-              <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="1200" height="900" fill="url(#g)"/>
-          <rect width="1200" height="900" fill="url(#r)"/>
-          <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="3">
-            <path d="M0 580 C 120 540, 230 620, 360 590 S 620 540, 760 590 S 1000 640, 1200 570" />
-            <path d="M0 650 C 130 620, 210 700, 360 675 S 620 615, 770 680 S 1010 730, 1200 660" />
-          </g>
-          <text x="60" y="170" fill="#ffffff" font-size="66" font-family="Inter, Arial" font-weight="800">${title}</text>
-          <text x="60" y="240" fill="#cbd5e1" font-size="30" font-family="Inter, Arial">${subtitle}</text>
-          <text x="60" y="810" fill="#e2e8f0" font-size="28" font-family="Inter, Arial">Sanskrit • Culture • Modern UI</text>
-        </svg>`;
-      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    // Drawer
+    const drawer = document.getElementById('drawer');
+    const overlayBg = document.getElementById('overlayBg');
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+
+    function showDrawer(){
+      drawer.classList.add('open');
+      overlayBg.classList.add('show');
     }
+    function hideDrawer(){
+      drawer.classList.remove('open');
+      overlayBg.classList.remove('show');
+    }
+    openDrawer?.addEventListener('click', showDrawer);
+    closeDrawer.addEventListener('click', hideDrawer);
+    overlayBg.addEventListener('click', hideDrawer);
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', hideDrawer));
 
-    document.querySelectorAll('img').forEach((img) => {
-      img.addEventListener('error', () => {
-        const label = img.alt || 'Cultural visual';
-        const sub = img.closest('.photo')?.querySelector('.photo-label span')?.textContent || 'Cultural context and modern presentation.';
-        img.src = svgData(label, sub);
-      }, { once: true });
-    });
-
-    // Better transliteration / phrase translation
-    const translateInput = document.getElementById('translateInput');
-    const translateMode = document.getElementById('translateMode');
-    const translateOutput = document.getElementById('translateOutput');
+    // Transliterator + best-effort Sanskrit phrases
+    const srcText = document.getElementById('srcText');
+    const mode = document.getElementById('mode');
+    const target = document.getElementById('target');
+    const translateOut = document.getElementById('translateOut');
 
     const phraseMap = [
-      ['namaste', 'नमस्ते'],
-      ['namaskar', 'नमस्कार'],
-      ['hello', 'नमस्ते'],
-      ['hi', 'नमस्ते'],
-      ['peace', 'शान्तिः'],
-      ['knowledge', 'विद्या'],
-      ['wisdom', 'प्रज्ञा'],
-      ['truth', 'सत्यम्'],
-      ['dharma', 'धर्मः'],
-      ['teacher', 'आचार्यः'],
-      ['student', 'शिष्यः'],
-      ['study', 'अध्ययनम्'],
-      ['life', 'जीवनम्'],
-      ['light', 'दीपः'],
-      ['heart', 'हृदयम्'],
-      ['mind', 'मनः'],
-      ['good', 'शुभम्'],
-      ['thank you', 'धन्यवादः'],
-      ['my name is', 'मम नाम'],
-      ['i am', 'अहम् अस्मि'],
-      ['learn', 'अधिगच्छ'],
-      ['book', 'पुस्तकम्'],
-      ['morning', 'प्रातः'],
-      ['river', 'नदी'],
-      ['ganga', 'गङ्गा'],
-      ['aarti', 'आरती'],
-      ['shloka', 'श्लोकः']
+      [/good morning/gi, 'सुप्रभातम्'],
+      [/good evening/gi, 'शुभसायं'],
+      [/thank you/gi, 'धन्यवादः'],
+      [/please/gi, 'कृपया'],
+      [/hello|namaste/gi, 'नमस्ते'],
+      [/i am/gi, 'अहम् अस्मि'],
+      [/i love/gi, 'अहम् प्रेम करोमि'],
+      [/how are you\?/gi, 'कथं अस्ति भवान्/भवती?'],
+      [/peace/gi, 'शान्तिः'],
+      [/knowledge/gi, 'ज्ञानम्'],
+      [/teacher/gi, 'आचार्यः'],
+      [/student/gi, 'छात्रः'],
+      [/river/gi, 'नदी'],
+      [/water/gi, 'जलम्'],
+      [/temple/gi, 'मन्दिरम्'],
+      [/kashi/gi, 'काशी'],
+      [/ganga|ganges/gi, 'गङ्गा'],
+      [/sanskrit/gi, 'संस्कृतम्'],
+      [/spiritual/gi, 'आध्यात्मिक'],
+      [/modern/gi, 'आधुनिक'],
+      [/culture/gi, 'संस्कृति']
     ];
 
-    const romanMap = [
-      ['ksh', 'क्ष'], ['jn', 'ज्ञ'], ['tr', 'त्र'], ['sh', 'श'], ['chh', 'छ'],
-      ['aa', 'आ'], ['ii', 'ई'], ['uu', 'ऊ'], ['ai', 'ऐ'], ['au', 'औ'],
-      ['kh', 'ख'], ['gh', 'घ'], ['ch', 'च'], ['jh', 'झ'], ['th', 'थ'], ['dh', 'ध'], ['ph', 'फ'], ['bh', 'भ'],
-      ['a', 'अ'], ['i', 'इ'], ['u', 'उ'], ['e', 'ए'], ['o', 'ओ'],
-      ['k', 'क'], ['g', 'ग'], ['j', 'ज'], ['t', 'त'], ['d', 'द'], ['n', 'न'], ['p', 'प'], ['b', 'ब'], ['m', 'म'],
-      ['y', 'य'], ['r', 'र'], ['l', 'ल'], ['v', 'व'], ['s', 'स'], ['h', 'ह']
-    ];
-
-    function transliterateRoman(text) {
-      let out = text.toLowerCase();
-      romanMap.forEach(([src, dst]) => {
-        out = out.split(src).join(dst);
-      });
-      out = out
-        .replace(/\bnamo\b/g, 'नमो')
-        .replace(/\bnamah\b/g, 'नमः')
-        .replace(/\bshanti\b/g, 'शान्ति')
-        .replace(/\bgita\b/g, 'गीता')
-        .replace(/\bdharma\b/g, 'धर्म')
-        .replace(/\bjnana\b/g, 'ज्ञान')
-        .replace(/\bsurya\b/g, 'सूर्य')
-        .replace(/\bganga\b/g, 'गङ्गा')
-        .replace(/\baarti\b/g, 'आरती')
-        .replace(/\bom\b/g, 'ॐ');
+    function bestEffortSanskrit(text){
+      let out = text.trim();
+      for(const [pattern, replacement] of phraseMap){
+        out = out.replace(pattern, replacement);
+      }
+      if (!out || out === text.trim()) {
+        out = text.trim();
+      }
       return out;
     }
 
-    function phraseTranslate(text) {
-      let out = ' ' + text.toLowerCase() + ' ';
-      phraseMap
-        .sort((a, b) => b[0].length - a[0].length)
-        .forEach(([src, dst]) => {
-          const re = new RegExp(src.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-          out = out.replace(re, ' ' + dst + ' ');
-        });
-      out = out.replace(/\s+/g, ' ').trim();
-      return out || 'अनुवाद उपलब्ध नहीं है।';
+    function transliterateRoman(text, toScheme){
+      if (!window.Sanscript) return text;
+      try{
+        return Sanscript.t(text, 'itrans', toScheme, { syncope: true });
+      }catch(e){
+        return text;
+      }
     }
 
-    function isDevanagari(text){
-      return /[\u0900-\u097F]/.test(text);
-    }
+    function convertHindiOrRoman(text, targetScheme, currentMode){
+      const raw = text.trim();
+      if(!raw) return 'Your output will appear here.';
 
-    function updateTranslation(){
-      const input = translateInput.value.trim();
-      if (!input) {
-        translateOutput.textContent = 'देवनागरी output यहाँ दिखेगा।';
-        return;
+      if (currentMode === 'translate') {
+        const translated = bestEffortSanskrit(raw);
+        if (targetScheme === 'devanagari') return translated;
+        // For non-Devanagari targets, transliterate the best-effort Sanskrit text.
+        return transliterateRoman(translated, targetScheme);
       }
 
-      const mode = translateMode.value;
-      let result = '';
-
-      if (mode === 'transliterate') {
-        result = transliterateRoman(input);
-      } else if (mode === 'translate') {
-        result = phraseTranslate(input);
-      } else {
-        if (isDevanagari(input)) {
-          result = input;
-        } else if (/[a-zA-Z]/.test(input) && !/\b(the|is|and|for|with|to|of)\b/i.test(input)) {
-          result = transliterateRoman(input);
-        } else {
-          result = phraseTranslate(input);
+      // transliterate mode
+      const looksDevanagari = /[\u0900-\u097F]/.test(raw);
+      if (looksDevanagari) {
+        if (!window.Sanscript) return raw;
+        try{
+          return Sanscript.t(raw, 'devanagari', targetScheme);
+        }catch(e){
+          return raw;
         }
       }
-
-      translateOutput.textContent = result;
+      return transliterateRoman(raw, targetScheme);
     }
 
-    translateInput.addEventListener('input', updateTranslation);
-    translateMode.addEventListener('change', updateTranslation);
+    function runTranslate(){
+      const text = srcText.value;
+      translateOut.textContent = convertHindiOrRoman(text, target.value, mode.value);
+    }
 
-    document.getElementById('sampleEnglish').addEventListener('click', () => {
-      translateInput.value = 'my name is abhishek and I love knowledge peace and dharma';
-      translateMode.value = 'translate';
-      updateTranslation();
+    document.getElementById('runTranslate').addEventListener('click', runTranslate);
+    srcText.addEventListener('input', () => {
+      if (srcText.value.trim()) runTranslate();
     });
-
-    document.getElementById('sampleHindi').addEventListener('click', () => {
-      translateInput.value = 'मेरा नाम अभिषेक है और मुझे विद्या, शान्ति और धर्म प्रिय हैं';
-      translateMode.value = 'translate';
-      updateTranslation();
+    document.getElementById('clearTranslate').addEventListener('click', () => {
+      srcText.value = '';
+      translateOut.textContent = 'Your output will appear here.';
     });
-
-    document.getElementById('copyTranslation').addEventListener('click', async () => {
-      const text = translateOutput.textContent.trim();
+    document.getElementById('copyTranslate').addEventListener('click', async () => {
       try{
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(translateOut.textContent.trim());
         alert('Copied.');
       }catch(e){
-        alert('Copy not available.');
+        alert('Copy is not available in this browser.');
       }
     });
 
-    // Shlokas
-    const shlokas = [
-      { s:'विद्या ददाति विनयम्।', m:'Knowledge gives humility, steadiness, and respect.' },
-      { s:'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।', m:'You have the right to action, not to the fruits alone.' },
-      { s:'सत्यमेव जयते।', m:'Truth alone triumphs.' },
-      { s:'उद्यमेन हि सिद्ध्यन्ति कार्याणि न मनोरथैः।', m:'Work succeeds through effort, not only wish.' }
-    ];
-    let shlokaIndex = 0;
-    const shlokaText = document.getElementById('shlokaText');
-    const shlokaMeaning = document.getElementById('shlokaMeaning');
-
-    document.getElementById('nextShloka').addEventListener('click', () => {
-      shlokaIndex = (shlokaIndex + 1) % shlokas.length;
-      shlokaText.textContent = shlokas[shlokaIndex].s;
-      shlokaMeaning.textContent = shlokas[shlokaIndex].m;
-    });
-
-    document.getElementById('copyShloka').addEventListener('click', async () => {
-      try{
-        await navigator.clipboard.writeText(`${shlokaText.textContent} — ${shlokaMeaning.textContent}`);
-        alert('Shloka copied.');
-      }catch(e){
-        alert('Copy not available.');
-      }
-    });
-
-    // AI assistant
+    // Ask AI with direct answers
     const chatWindow = document.getElementById('chatWindow');
     const chatInput = document.getElementById('chatInput');
 
-    function addMsg(text, who){
-      const div = document.createElement('div');
-      div.className = `msg ${who}`;
-      div.textContent = text;
-      chatWindow.appendChild(div);
+    function addMsg(text, type){
+      const el = document.createElement('div');
+      el.className = `msg ${type}`;
+      el.textContent = text;
+      chatWindow.appendChild(el);
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
-    function smartReply(q) {
-      const t = q.toLowerCase().trim();
+    function aiReply(question){
+      const q = question.toLowerCase();
 
-      if (/who are you|what are you|your name|तुम कौन|आप कौन/.test(t)) {
-        return 'मैं आपका Sanskrit website assistant हूँ। I help with shlokas, grammar, translation, project planning, and site structure.';
+      if (q.includes('kashi') || q.includes('काशी') || q.includes('varanasi') || q.includes('varanasi')) {
+        return 'Kashi works best here as a balance of sacred atmosphere and modern clarity. Use one strong full-width image, then a smaller gallery so the page feels calm, not crowded.';
       }
-
-      if (/what can you do|help me|help with|कैसे|मदद/.test(t)) {
-        return 'I can explain Sanskrit concepts, rewrite content, improve this website, suggest design ideas, and help structure your portfolio.';
+      if (q.includes('translator') || q.includes('translate') || q.includes('transliterate') || q.includes('translation')) {
+        return 'The translator should offer two things: best-effort Sanskrit phrases and script conversion. That gives users something useful even when a full literal translation is not possible.';
       }
-
-      if (/shloka|श्लोक|gita|गीता/.test(t)) {
-        return 'For a strong starting point, use: “कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।” It teaches action, focus, and discipline.';
+      if (q.includes('keyboard')) {
+        return 'For the keyboard section, show the input flow clearly: roman text, Sanskrit suggestion strip, script preview, and one-tap copy. That makes the idea easier to understand instantly.';
       }
-
-      if (/grammar|व्याकरण|sandhi|धातु|samasa/.test(t)) {
-        return 'Sanskrit grammar works through clear rules, sound patterns, and precise structure. I can help you make a beginner-friendly explanation page for any topic.';
+      if (q.includes('contact')) {
+        return 'The contact page should stay simple: name, email, message, and one strong action button. Keep the right side for links, availability, or a download card.';
       }
-
-      if (/translate|translation|अनुवाद|transliterate|लिप्यंतरण/.test(t)) {
-        return 'Use the translator section above for Roman text and common phrase conversion. It is designed for quick everyday use.';
+      if (q.includes('website') || q.includes('layout') || q.includes('design') || q.includes('tabs')) {
+        return 'The layout should use a page map, image-led hero, and fewer repeated tabs. That reduces clutter and gives each section a clear purpose.';
       }
-
-      if (/keyboard|कीबोर्ड/.test(t)) {
-        return 'Your Sanskrit keyboard can become a polished product with transliteration, predictive suggestions, shortcut words, and a learning dictionary.';
+      if (q.includes('who are you') || q.includes('what are you')) {
+        return 'I am your site assistant for layout ideas, Sanskrit content, and clear content structure. I answer directly and keep the page moving.';
       }
-
-      if (/ganga|गंगा|aarti|आरती|varanasi|काशी|ghat|घाट/.test(t)) {
-        return 'Kashi and Ganga visuals work best when the layout feels calm, spiritual, and spacious. The gallery section already follows that style.';
-      }
-
-      if (/website|site|portfolio|ui|design/.test(t)) {
-        return 'This site now has a stronger structure: clean navigation, images, gallery, tools, AI, blogs, social cards, and contact flow.';
-      }
-
-      if (/note|download|pdf|cv|resume/.test(t)) {
-        return 'You can connect the download buttons to PDF files later, and add a notes library or resource center with backend storage.';
-      }
-
-      return 'I can help with Sanskrit learning, website design, project planning, transliteration, and educational content. Try a topic like grammar, shloka, keyboard, or gallery.';
+      return 'I can help with the design, Sanskrit text, gallery story, or assistant copy. The best next step is to keep one topic per section and keep answers short and useful.';
     }
 
     function sendChat(){
@@ -1872,15 +1289,22 @@
       if(!q) return;
       addMsg(q, 'user');
       chatInput.value = '';
-      setTimeout(() => addMsg(smartReply(q), 'bot'), 350);
+      setTimeout(() => addMsg(aiReply(q), 'bot'), 240);
     }
 
     document.getElementById('sendChat').addEventListener('click', sendChat);
     chatInput.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter') sendChat();
+      if (e.key === 'Enter') sendChat();
     });
 
-    // Contact form demo
+    document.querySelectorAll('[data-prompt]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        chatInput.value = btn.dataset.prompt;
+        sendChat();
+      });
+    });
+
+    // Contact
     document.getElementById('sendForm').addEventListener('click', () => {
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -1890,130 +1314,8 @@
         alert('Please fill all contact fields.');
         return;
       }
-
       alert(`Thanks, ${name}. Your message is ready to connect to a backend.`);
     });
-
-    // Flute ambience
-    let audioCtx = null;
-    let playing = false;
-    let musicTimer = null;
-
-    function playNote(freq, start, duration, type='sine', gainValue=0.03){
-      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      const filter = audioCtx.createBiquadFilter();
-
-      filter.type = 'lowpass';
-      filter.frequency.value = 1200;
-
-      osc.type = type;
-      osc.frequency.value = freq;
-
-      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + start);
-      gain.gain.exponentialRampToValueAtTime(gainValue, audioCtx.currentTime + start + 0.05);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + start + duration);
-
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(audioCtx.currentTime + start);
-      osc.stop(audioCtx.currentTime + start + duration + 0.05);
-    }
-
-    function startMusic(){
-      if(playing) return;
-      playing = true;
-
-      const notes = [523.25, 587.33, 659.25, 587.33, 523.25, 440, 523.25];
-      let i = 0;
-
-      musicTimer = setInterval(() => {
-        const base = notes[i % notes.length];
-        playNote(base, 0, 1.05, 'sine', 0.03);
-        playNote(base * 2, 0.02, 0.55, 'triangle', 0.01);
-        i++;
-      }, 900);
-
-      document.getElementById('musicBtn').textContent = '❚❚ Stop Music';
-    }
-
-    function stopMusic(){
-      playing = false;
-      clearInterval(musicTimer);
-      musicTimer = null;
-      document.getElementById('musicBtn').textContent = '🎵 Music';
-    }
-
-    document.getElementById('musicBtn').addEventListener('click', () => {
-      if(playing) stopMusic();
-      else startMusic();
-    });
-
-    // Particles
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let w, h, particles;
-
-    const glyphs = ['ॐ', 'अ', 'क', 'ग', 'श', 'त्र', 'ज्ञ', 'ध', 'स', 'ह', 'ग', 'ङ'];
-
-    function resizeCanvas(){
-      w = canvas.width = window.innerWidth * devicePixelRatio;
-      h = canvas.height = window.innerHeight * devicePixelRatio;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      initParticles();
-    }
-
-    function initParticles(){
-      const count = Math.min(86, Math.floor(window.innerWidth / 14));
-      particles = Array.from({length: count}, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * 1.8 + 0.6,
-        vx: (Math.random() - .5) * 0.42 * devicePixelRatio,
-        vy: (Math.random() - .5) * 0.42 * devicePixelRatio,
-        a: Math.random() * Math.PI * 2,
-        g: glyphs[Math.floor(Math.random() * glyphs.length)],
-        s: Math.random() < .22
-      }));
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.a += 0.01;
-
-        if(p.x < -20) p.x = w + 20;
-        if(p.x > w + 20) p.x = -20;
-        if(p.y < -20) p.y = h + 20;
-        if(p.y > h + 20) p.y = -20;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * (1 + Math.sin(p.a) * .25), 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,255,255,.60)';
-        ctx.fill();
-
-        if(p.s){
-          ctx.font = `${12 * devicePixelRatio}px "Noto Serif Devanagari", serif`;
-          ctx.fillStyle = 'rgba(255,255,255,.08)';
-          ctx.fillText(p.g, p.x, p.y);
-        }
-      });
-
-      requestAnimationFrame(draw);
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    draw();
-
-    // Init translation demo
-    updateTranslation();
   </script>
 </body>
 </html>
