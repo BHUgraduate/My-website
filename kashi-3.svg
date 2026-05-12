@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffb66f"/><stop offset="100%" stop-color="#71f1d2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#081425"/>
+  <rect x="120" y="110" width="960" height="580" rx="54" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.16)"/>
+  <circle cx="350" cy="300" r="130" fill="url(#g)" opacity=".25"/>
+  <circle cx="860" cy="290" r="180" fill="#8aa4ff" opacity=".18"/>
+  <path d="M250 530 Q600 160 950 530" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="420" font-size="56" fill="#eff5ff" text-anchor="middle" font-family="Arial">3D Card Placeholder</text>
+</svg>

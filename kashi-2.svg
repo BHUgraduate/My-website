@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#07111f"/>
+  <g opacity=".95">
+    <circle cx="180" cy="180" r="120" fill="#71f1d2" opacity=".28"/>
+    <circle cx="980" cy="140" r="160" fill="#8aa4ff" opacity=".25"/>
+    <circle cx="900" cy="600" r="210" fill="#ffb66f" opacity=".16"/>
+  </g>
+  <g fill="none" stroke="rgba(255,255,255,.24)" stroke-width="14" stroke-linecap="round">
+    <path d="M220 560 L420 360 L600 510 L790 280 L980 520"/>
+    <path d="M280 580 L280 330"/>
+    <path d="M520 560 L520 220"/>
+    <path d="M760 560 L760 250"/>
+  </g>
+  <text x="600" y="720" font-size="52" fill="#eff5ff" text-anchor="middle" font-family="Arial">Premium Visual Block</text>
+</svg>

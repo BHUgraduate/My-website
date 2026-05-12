@@ -1,353 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>मेरी पहली लाइव वेबसाइट</title>
-  <style>
-:root{
-  --bg1:#07111f;
-  --bg2:#0d1b2a;
-  --card: rgba(255,255,255,.08);
-  --card-2: rgba(255,255,255,.12);
-  --text:#eaf2ff;
-  --muted: rgba(234,242,255,.72);
-  --accent:#7cf7d4;
-  --accent2:#8fa9ff;
-  --shadow: 0 30px 80px rgba(0,0,0,.35);
-  --radius: 24px;
-}
-
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text);
-  min-height:100vh;
-  background:
-    radial-gradient(circle at top left, rgba(124,247,212,.22), transparent 28%),
-    radial-gradient(circle at 80% 15%, rgba(143,169,255,.20), transparent 24%),
-    linear-gradient(160deg, var(--bg1), var(--bg2));
-  overflow-x:hidden;
-}
-
-body::before, body::after{
-  content:"";
-  position:fixed;
-  inset:auto;
-  width:380px;height:380px;
-  border-radius:50%;
-  filter: blur(20px);
-  opacity:.22;
-  z-index:-1;
-  animation: float 10s ease-in-out infinite;
-}
-body::before{
-  left:-80px; top:120px;
-  background: radial-gradient(circle, rgba(124,247,212,1), transparent 70%);
-}
-body::after{
-  right:-100px; bottom:0;
-  background: radial-gradient(circle, rgba(143,169,255,1), transparent 70%);
-  animation-delay:-4s;
-}
-
-@keyframes float{
-  0%,100%{transform:translate3d(0,0,0) scale(1)}
-  50%{transform:translate3d(0,-20px,0) scale(1.05)}
-}
-
-a{color:inherit;text-decoration:none}
-.container{
-  width:min(1120px, calc(100% - 32px));
-  margin:0 auto;
-}
-
-.nav{
-  position:sticky; top:0; z-index:20;
-  backdrop-filter: blur(18px);
-  background: rgba(5,10,18,.52);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.nav-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:16px; padding:16px 0;
-}
-.brand{
-  display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px;
-}
-.logo{
-  width:42px;height:42px;border-radius:14px;
-  background:
-    linear-gradient(145deg, rgba(124,247,212,.95), rgba(143,169,255,.95));
-  box-shadow: 0 10px 25px rgba(0,0,0,.28);
-  transform: perspective(800px) rotateX(14deg) rotateY(-16deg);
-}
-.menu{
-  display:flex; flex-wrap:wrap; gap:10px;
-}
-.menu a{
-  padding:10px 14px;
-  border-radius:999px;
-  color:var(--muted);
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  transition: .25s ease;
-}
-.menu a:hover, .menu a.active{
-  color:var(--text);
-  background: rgba(255,255,255,.10);
-  transform: translateY(-1px);
-}
-
-.hero{
-  padding: 72px 0 34px;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap:24px;
-  align-items:center;
-}
-.kicker{
-  display:inline-flex; gap:10px; align-items:center;
-  padding:8px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.05);
-  color: var(--muted);
-  margin-bottom:18px;
-}
-.kicker-dot{
-  width:10px;height:10px;border-radius:50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(124,247,212,.10);
-}
-h1{
-  margin:0 0 16px;
-  font-size: clamp(2.3rem, 5vw, 4.9rem);
-  line-height: .95;
-  letter-spacing:-.04em;
-}
-.lead{
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  line-height:1.75;
-  color:var(--muted);
-  max-width:62ch;
-  margin:0 0 24px;
-}
-.actions{
-  display:flex; gap:12px; flex-wrap:wrap;
-}
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:14px 18px;
-  border-radius:999px;
-  font-weight:600;
-  border:1px solid rgba(255,255,255,.12);
-  transition:.25s ease;
-}
-.btn.primary{
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color:#07111f;
-  box-shadow: 0 18px 30px rgba(0,0,0,.24);
-}
-.btn.secondary{
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-.btn:hover{transform: translateY(-2px) scale(1.01)}
-
-.scene{
-  position:relative;
-  min-height: 420px;
-  display:grid;
-  place-items:center;
-  perspective: 1200px;
-}
-.glass-card{
-  width:min(100%, 420px);
-  min-height: 320px;
-  border-radius: 32px;
-  background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.05));
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-  transform-style: preserve-3d;
-  transform: rotateX(12deg) rotateY(-16deg);
-  position:relative;
-  overflow:hidden;
-}
-.glass-card::before{
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(124,247,212,.28), transparent 24%),
-    radial-gradient(circle at 80% 30%, rgba(143,169,255,.26), transparent 22%),
-    radial-gradient(circle at 50% 80%, rgba(255,255,255,.10), transparent 28%);
-}
-.orb{
-  position:absolute;
-  border-radius:50%;
-  filter: blur(4px);
-  transform: translateZ(40px);
-  animation: bob 4.5s ease-in-out infinite;
-}
-.orb.one{width:92px;height:92px;left:34px;top:34px;background:rgba(124,247,212,.92)}
-.orb.two{width:140px;height:140px;right:22px;top:72px;background:rgba(143,169,255,.85);animation-delay:-1.7s}
-.orb.three{width:70px;height:70px;left:42%;bottom:34px;background:rgba(255,255,255,.8);animation-delay:-3s}
-@keyframes bob{
-  0%,100%{transform: translate3d(0,0,40px)}
-  50%{transform: translate3d(0,-14px,40px)}
-}
-
-.card-caption{
-  position:absolute;
-  left:24px; right:24px; bottom:20px;
-  padding:18px;
-  border-radius:20px;
-  background: rgba(6,10,18,.50);
-  border:1px solid rgba(255,255,255,.10);
-  backdrop-filter: blur(12px);
-  transform: translateZ(48px);
-}
-.card-caption strong{display:block; font-size:1.05rem; margin-bottom:6px}
-.card-caption span{color:var(--muted); line-height:1.6}
-
-.section{
-  padding: 18px 0 72px;
-}
-.grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:18px;
-}
-.panel{
-  padding:22px;
-  border-radius:var(--radius);
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow: var(--shadow);
-  transform-style: preserve-3d;
-  transition: .25s ease;
-}
-.panel:hover{
-  transform: translateY(-5px) rotateX(2deg);
-}
-.panel h3{margin:0 0 10px; font-size:1.08rem}
-.panel p{margin:0; color:var(--muted); line-height:1.7}
-.badge{
-  display:inline-flex; align-items:center; gap:8px;
-  margin-bottom:14px;
-  color:var(--text);
-  padding:8px 12px;
-  border-radius:999px;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.09);
-}
-.badge i{
-  width:9px;height:9px;border-radius:50%;
-  background: var(--accent);
-}
-
-.page-title{
-  padding: 56px 0 8px;
-}
-.page-title h1{font-size: clamp(2.1rem, 4vw, 3.6rem)}
-.page-title p{color:var(--muted); max-width: 70ch; line-height:1.75}
-
-.timeline{
-  display:grid;
-  gap:14px;
-}
-.timeline-item{
-  padding:20px 22px;
-  border-radius:20px;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
-}
-.timeline-item strong{display:block; margin-bottom:8px}
-.timeline-item span{color:var(--muted); line-height:1.7}
-
-.footer{
-  padding:22px 0 40px;
-  color: rgba(234,242,255,.55);
-  font-size:.95rem;
-}
-
-@media (max-width: 900px){
-  .hero-grid, .grid{grid-template-columns:1fr}
-  .scene{min-height:340px}
-  .nav-inner{flex-direction:column; align-items:flex-start}
-}
-</style>
+  <title>मेरी प्रीमियम वेबसाइट</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html"><span class="logo"></span> <span>मेरी वेबसाइट</span></a>
-      <div class="menu">
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Content</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </div>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"></span>
+        <span>मेरी प्रीमियम वेबसाइट</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <nav class="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html" class="">About</a>
+        <a href="services.html" class="">Content</a>
+        <a href="gallery.html" class="">Gallery</a>
+        <a href="contact.html" class="">Contact</a>
+      </nav>
     </div>
-  </nav>
-
-  <main class="container">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker"><span class="kicker-dot"></span> Clean, simple, animated 3D UI</div>
-          <h1>एक modern website<br/>जो साफ़ भी लगे और जीवंत भी।</h1>
-          <p class="lead">
-            यह home page एक soft 3D glass look, smooth motion, और easy navigation के साथ बनाया गया है।
-            हर tab अलग page खोलेगा, ठीक traditional websites की तरह.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="services.html">Explore Pages</a>
-            <a class="btn secondary" href="about.html">Read More</a>
-          </div>
+  </header>
+  
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <div class="kicker"><span class="dot"></span> Simple, animated, and premium 3D UI</div>
+        <h1>एक modern website जो साफ़ भी है और visually powerful भी।</h1>
+        <p class="lead">
+          यह frontend package GitHub Pages पर सीधे चल सकता है। इसमें separate pages, glassmorphism,
+          smooth motion, 3D depth, hover tilt, and clean navigation already included हैं।
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="services.html">Explore Pages</a>
+          <a class="btn secondary" href="gallery.html">See Visuals</a>
         </div>
 
-        <div class="scene">
-          <div class="glass-card">
-            <div class="orb one"></div>
-            <div class="orb two"></div>
-            <div class="orb three"></div>
-            <div class="card-caption">
-              <strong>3D Graphical Preview</strong>
-              <span>Soft depth, gentle animation, and a polished card-based feel without making the design heavy.</span>
+        <div class="stats reveal">
+          <div class="stat tilt"><b>05</b><span>Dedicated pages with same design system</span></div>
+          <div class="stat tilt"><b>3D</b><span>Glass layers, floating objects, and tilt motion</span></div>
+          <div class="stat tilt"><b>100%</b><span>Frontend-friendly for GitHub Pages hosting</span></div>
+          <div class="stat tilt"><b>Fast</b><span>Lightweight, simple code structure</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="orbit">
+          <div class="glass-orbital tilt">
+            <div class="floating one"></div>
+            <div class="floating two"></div>
+            <div class="floating three"></div>
+            <div class="caption">
+              <strong>3D hero panel</strong>
+              <span>Soft depth, glass layers, and motion without visual clutter. This is the core look of the site.</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="grid">
-        <div class="panel">
-          <div class="badge"><i></i> Simple layout</div>
-          <h3>Clean structure</h3>
-          <p>Less clutter, more space, and easy reading so the page feels premium and calm.</p>
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Why this feels premium</div>
+          <h2>Clean layout, big spacing, real page navigation.</h2>
         </div>
-        <div class="panel">
-          <div class="badge"><i></i> Page navigation</div>
-          <h3>Separate pages</h3>
-          <p>Each tab opens a different page, so the site works like a proper traditional website.</p>
-        </div>
-        <div class="panel">
-          <div class="badge"><i></i> 3D motion</div>
-          <h3>Light animation</h3>
-          <p>Subtle movement and layered depth give the UI a modern 3D feel without looking busy.</p>
+        <p class="small">The site is designed to feel like a modern product website, while staying simple enough to edit later.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="feature tilt reveal">
+          <div class="icon"><span>◈</span></div>
+          <h3>Depth</h3>
+          <p>Layered cards and glowing gradients add a 3D look without making the UI heavy.</p>
+        </article>
+        <article class="feature tilt reveal">
+          <div class="icon"><span>✦</span></div>
+          <h3>Motion</h3>
+          <p>Subtle animations and hover tilt give life to the layout while keeping it elegant.</p>
+        </article>
+        <article class="feature tilt reveal">
+          <div class="icon"><span>⌁</span></div>
+          <h3>Structure</h3>
+          <p>Each tab opens a separate HTML page, so the website behaves like a traditional multi-page site.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Built for expansion</div>
+          <h2>Ready for your real content next.</h2>
         </div>
       </div>
-    </section>
-  </main>
 
-  <div class="footer container">Made to feel simple, elegant, and easier to expand later.</div>
+      <div class="steps">
+        <div class="step tilt reveal"><b>1</b><h3>Home</h3><p>Hero section, stats, and premium visual identity.</p></div>
+        <div class="step tilt reveal"><b>2</b><h3>Content</h3><p>Cards for translator, AI tools, lessons, or services.</p></div>
+        <div class="step tilt reveal"><b>3</b><h3>Gallery</h3><p>Place images, feature showcases, or brand visuals here.</p></div>
+        <div class="step tilt reveal"><b>4</b><h3>Contact</h3><p>Forms, links, and support information in one clean page.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer class="footer">
+    <div class="container">© <span data-year></span> मेरी प्रीमियम वेबसाइट — built for GitHub Pages.</div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
