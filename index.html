@@ -2,32 +2,99 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <title>मेरी पहली लाइव वेबसाइट</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अभिषेक - पोर्टफोलियो</title>
     <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --bg: #0f172a;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
+            min-height: 100vh;
+            padding: 20px;
         }
-        .card {
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
             text-align: center;
-            padding: 50px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-out;
         }
-        h1 { color: #2ecc71; }
-        p { color: #34495e; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        h1 { margin: 10px 0; font-size: 2rem; background: linear-gradient(to right, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .shloka { font-style: italic; color: #94a3b8; margin-bottom: 20px; font-size: 0.9rem; }
+
+        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; }
+        
+        .tag { background: rgba(99, 102, 241, 0.2); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4); }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>नमस्ते दुनिया!</h1>
-        <p>यह वेबसाइट GitHub Pages की मदद से लाइव है।</p>
+
+    <div class="container">
+        <div class="profile-img">🪈</div>
+        <h1>नमो नमः! मैं हूँ अभिषेक</h1>
+        <p class="shloka">"विद्या ददाति विनयं विनयाद् याति पात्रताम्"</p>
+        
+        <p>मैं बीएचयू (BHU) का छात्र हूँ और मुझे संस्कृत साहित्य, कोडिंग और वंशी वादन में रुचि है।</p>
+
+        <div class="tags">
+            <span class="tag">संस्कृत प्रेमी</span>
+            <span class="tag">App Developer</span>
+            <span class="tag">Flute Artist</span>
+            <span class="tag">Web Design</span>
+        </div>
+
+        <a href="https://github.com/bhugraduate" class="btn">मेरे प्रोजेक्ट्स देखें</a>
     </div>
+
 </body>
 </html>
