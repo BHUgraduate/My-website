@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f172a" />
-  <meta name="description" content="अभिषेक शर्मा का modern Sanskrit learning, teaching, and developer portfolio — featuring projects, timeline, AI assistant, keyboard demo, blog, and contact." />
-  <meta name="keywords" content="Sanskrit, Portfolio, BHU, Developer, Teacher, Keyboard, AI, Vlog, Learning" />
-  <meta property="og:title" content="अभिषेक शर्मा | Sanskrit, Tech & Teaching" />
-  <meta property="og:description" content="Ultra-modern portfolio website with Sanskrit-inspired design, projects, learning tools, AI demo, and interactive sections." />
-  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Abhishek Sharma — Sanskrit, teaching, technology, and modern cultural portfolio with image-rich sections, transliteration, and AI assistant." />
   <title>अभिषेक शर्मा | Sanskrit • Tech • Teaching</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,47 +13,47 @@
 
   <style>
     :root{
-      --bg: #070b17;
-      --bg2: #0b1024;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.12);
-      --text: #f8fafc;
-      --muted: #a8b3cf;
-      --line: rgba(255,255,255,.12);
-      --primary: #8b5cf6;
-      --secondary: #22d3ee;
-      --accent: #f472b6;
-      --success: #34d399;
-      --warn: #f59e0b;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --blur: blur(18px);
-      --radius: 28px;
-      --radius2: 20px;
-      --max: 1220px;
+      --bg:#060913;
+      --bg2:#0d1429;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.12);
+      --text:#f8fafc;
+      --muted:#a7b2cc;
+      --line:rgba(255,255,255,.12);
+      --primary:#8b5cf6;
+      --secondary:#22d3ee;
+      --accent:#f472b6;
+      --gold:#f59e0b;
+      --success:#34d399;
+      --shadow:0 22px 60px rgba(0,0,0,.35);
+      --blur:blur(18px);
+      --radius:28px;
+      --radius2:20px;
+      --max:1240px;
     }
 
     [data-theme="light"]{
-      --bg: #f7f8fc;
-      --bg2: #eef2ff;
-      --card: rgba(255,255,255,.72);
-      --card2: rgba(255,255,255,.86);
-      --text: #0f172a;
-      --muted: #52607a;
-      --line: rgba(15,23,42,.10);
-      --shadow: 0 22px 55px rgba(15,23,42,.10);
+      --bg:#f7f8fc;
+      --bg2:#edf2ff;
+      --card:rgba(255,255,255,.78);
+      --card2:rgba(255,255,255,.88);
+      --text:#0f172a;
+      --muted:#53627b;
+      --line:rgba(15,23,42,.10);
+      --shadow:0 22px 55px rgba(15,23,42,.10);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(139,92,246,.22), transparent 25%),
-        radial-gradient(circle at 80% 10%, rgba(34,211,238,.18), transparent 25%),
-        radial-gradient(circle at 80% 80%, rgba(244,114,182,.16), transparent 25%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family:Inter, system-ui, -apple-system, Segoe UI, sans-serif;
       color:var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(139,92,246,.22), transparent 24%),
+        radial-gradient(circle at 80% 10%, rgba(34,211,238,.18), transparent 24%),
+        radial-gradient(circle at 80% 85%, rgba(244,114,182,.16), transparent 24%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
@@ -69,18 +65,21 @@
       background-image:
         linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
-      opacity:.5;
+      background-size:66px 66px;
+      mask-image:radial-gradient(circle at center, black 32%, transparent 100%);
+      opacity:.55;
       z-index:0;
     }
 
     a{color:inherit; text-decoration:none}
-    button, input, textarea{font:inherit}
+    button, input, textarea, select{font:inherit}
     ::selection{background:rgba(139,92,246,.35); color:inherit}
 
     .progress{
-      position:fixed; top:0; left:0; height:4px; width:0%;
+      position:fixed;
+      top:0; left:0;
+      height:4px;
+      width:0%;
       background:linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
       z-index:1000;
       box-shadow:0 0 18px rgba(139,92,246,.65);
@@ -91,12 +90,51 @@
       width:260px; height:260px;
       border-radius:50%;
       pointer-events:none;
-      background: radial-gradient(circle, rgba(139,92,246,.18), rgba(34,211,238,.10), transparent 72%);
-      filter: blur(8px);
       transform:translate(-50%, -50%);
-      z-index:1;
+      background:radial-gradient(circle, rgba(139,92,246,.18), rgba(34,211,238,.08), transparent 72%);
+      filter:blur(10px);
       mix-blend-mode:screen;
+      z-index:1;
     }
+
+    canvas#particles{
+      position:fixed;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      opacity:.88;
+    }
+
+    .loading{
+      position:fixed;
+      inset:0;
+      z-index:2000;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, var(--bg), var(--bg2));
+      transition:.5s ease;
+    }
+    .loading.hide{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+    .loader{
+      text-align:center;
+      width:min(360px, 90vw);
+    }
+    .ring{
+      width:78px;
+      height:78px;
+      margin:0 auto 18px;
+      border-radius:50%;
+      border:4px solid rgba(255,255,255,.10);
+      border-top-color:var(--secondary);
+      border-right-color:var(--primary);
+      animation:spin 1s linear infinite;
+    }
+    .loader h2{margin:0 0 8px; font-size:1.15rem}
+    .loader p{margin:0; color:var(--muted)}
 
     .wrap{
       position:relative;
@@ -104,135 +142,213 @@
     }
 
     .container{
-      width:min(var(--max), calc(100% - 32px));
+      width:min(var(--max), calc(100% - 30px));
       margin:0 auto;
     }
 
-    .nav{
+    .topbar{
       position:sticky;
-      top:16px;
-      z-index:50;
-      margin:16px auto 0;
+      top:14px;
+      z-index:60;
       width:min(var(--max), calc(100% - 18px));
-      backdrop-filter: var(--blur);
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+      margin:14px auto 0;
+      backdrop-filter:var(--blur);
+      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
       border:1px solid var(--line);
       border-radius:999px;
       box-shadow:var(--shadow);
     }
 
-    [data-theme="light"] .nav{
-      background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.56));
+    [data-theme="light"] .topbar{
+      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.60));
     }
 
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px;
-      padding:12px 16px;
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      justify-content:space-between;
+      padding:11px 14px;
     }
 
     .brand{
-      display:flex; align-items:center; gap:12px; min-width:0;
-      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+      font-weight:900;
       letter-spacing:.2px;
     }
-
-    .logo{
-      width:42px; height:42px; border-radius:14px;
-      display:grid; place-items:center;
-      background:linear-gradient(135deg, var(--primary), var(--secondary));
-      box-shadow:0 10px 25px rgba(139,92,246,.35);
-      flex:0 0 auto;
-      color:white;
-      font-size:1.1rem;
-    }
-
     .brand small{
       display:block;
       color:var(--muted);
       font-weight:600;
-      font-size:.78rem;
+      font-size:.77rem;
       margin-top:2px;
     }
 
-    .nav-links{
+    .logo{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:#fff;
+      font-size:1.12rem;
+      box-shadow:0 10px 24px rgba(139,92,246,.35);
+      flex:0 0 auto;
+    }
+
+    .actions{
       display:flex;
       align-items:center;
-      gap:18px;
+      gap:10px;
       flex-wrap:wrap;
-      justify-content:center;
+      justify-content:flex-end;
     }
 
-    .nav-links a{
-      color:var(--muted);
-      font-weight:600;
-      font-size:.92rem;
-      transition:.25s ease;
-    }
-    .nav-links a:hover{color:var(--text)}
-
-    .nav-actions{
-      display:flex; align-items:center; gap:10px;
-    }
-
-    .icon-btn, .pill-btn, .cta{
+    .icon-btn, .pill-btn, .cta, .mini-btn{
       border:0;
       cursor:pointer;
-      transition:.3s ease;
+      transition:.28s ease;
     }
 
     .icon-btn{
-      width:42px; height:42px; border-radius:14px;
-      display:grid; place-items:center;
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      color:var(--text);
+    }
+    .icon-btn:hover, .pill-btn:hover, .cta:hover, .mini-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 24px rgba(0,0,0,.16);
+    }
+
+    .pill-btn, .mini-btn{
+      border-radius:16px;
+      padding:12px 16px;
       color:var(--text);
       background:rgba(255,255,255,.08);
       border:1px solid var(--line);
+      font-weight:800;
     }
 
-    .icon-btn:hover, .pill-btn:hover, .cta:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 26px rgba(0,0,0,.18);
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius:16px;
+      padding:13px 18px;
+      color:#fff;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow:0 18px 32px rgba(34,211,238,.12);
+      font-weight:900;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap:18px;
+      width:min(var(--max), calc(100% - 30px));
+      margin:22px auto 0;
+      align-items:start;
+    }
+
+    .sidebar{
+      position:sticky;
+      top:88px;
+      border-radius:var(--radius);
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border:1px solid var(--line);
+      backdrop-filter:var(--blur);
+      box-shadow:var(--shadow);
+    }
+
+    [data-theme="light"] .sidebar{
+      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.60));
+    }
+
+    .sidebar h3{
+      margin:0 0 8px;
+      font-size:1rem;
+    }
+    .sidebar p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.65;
+    }
+
+    .quick-nav{
+      display:grid;
+      gap:10px;
+    }
+
+    .quick-nav a, .quick-nav button, .quick-nav select{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:12px 14px;
+      text-align:left;
+      font-weight:700;
+    }
+
+    .quick-nav a:hover, .quick-nav button:hover, .quick-nav select:hover{
+      border-color:rgba(139,92,246,.26);
+      transform:translateY(-1px);
+    }
+
+    .quick-nav select{
+      appearance:none;
+      outline:none;
+      cursor:pointer;
+    }
+
+    .main{
+      min-width:0;
+    }
+
+    .section{
+      margin-bottom:22px;
     }
 
     .hero{
-      padding:72px 0 34px;
-      position:relative;
-    }
-
-    .hero-grid{
       display:grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap:24px;
+      grid-template-columns: 1.08fr .92fr;
+      gap:18px;
       align-items:stretch;
     }
 
     .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      backdrop-filter: var(--blur);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      backdrop-filter:var(--blur);
       border:1px solid var(--line);
       box-shadow:var(--shadow);
     }
-
     [data-theme="light"] .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.80), rgba(255,255,255,.58));
+      background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.60));
     }
 
-    .hero-card{
+    .hero-card, .panel, .card, .tool, .contact-card{
       border-radius:var(--radius);
-      padding:28px;
-      position:relative;
       overflow:hidden;
     }
 
-    .hero-card::after{
-      content:"";
-      position:absolute;
-      inset:auto -10% -15% auto;
-      width:260px;
-      height:260px;
-      background:radial-gradient(circle, rgba(236,72,153,.24), transparent 68%);
-      filter:blur(8px);
-      pointer-events:none;
+    .hero-card{
+      padding:28px;
+      position:relative;
     }
 
     .eyebrow{
@@ -243,17 +359,16 @@
       border-radius:999px;
       background:rgba(139,92,246,.14);
       border:1px solid rgba(139,92,246,.25);
-      color:var(--text);
-      font-weight:700;
+      font-weight:800;
       font-size:.88rem;
       margin-bottom:18px;
     }
 
     .hero h1{
-      font-family:"Noto Serif Devanagari", serif;
-      font-size:clamp(2.5rem, 5vw, 4.8rem);
-      line-height:1.02;
       margin:0 0 14px;
+      font-family:"Noto Serif Devanagari", serif;
+      font-size:clamp(2.4rem, 5vw, 4.8rem);
+      line-height:1.03;
       letter-spacing:-.02em;
     }
 
@@ -267,68 +382,42 @@
     .hero p{
       margin:0;
       color:var(--muted);
-      font-size:1.03rem;
-      line-height:1.8;
-      max-width:68ch;
+      line-height:1.85;
+      font-size:1rem;
+      max-width:70ch;
     }
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin:24px 0 22px;
+      margin:22px 0 18px;
     }
 
-    .cta, .pill-btn{
-      border-radius:16px;
-      padding:13px 18px;
-      font-weight:800;
-    }
-
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color:#fff;
-      background:linear-gradient(135deg, var(--primary), var(--secondary));
-      box-shadow:0 18px 30px rgba(34,211,238,.15);
-    }
-
-    .pill-btn{
-      color:var(--text);
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-    }
-
-    .hero-meta{
+    .hero-tags{
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
-      margin-top:8px;
+      gap:10px;
     }
 
-    .meta-chip{
-      padding:10px 14px;
+    .tag{
+      padding:8px 12px;
       border-radius:999px;
-      background:rgba(255,255,255,.06);
       border:1px solid var(--line);
-      color:var(--muted);
-      font-size:.9rem;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700;
+      font-size:.86rem;
     }
 
     .side-stack{
       display:grid;
-      gap:24px;
+      gap:18px;
     }
 
     .profile-panel{
       padding:24px;
-      border-radius:var(--radius);
       position:relative;
-      overflow:hidden;
     }
 
     .avatar{
@@ -338,43 +427,26 @@
       display:grid;
       place-items:center;
       margin-bottom:18px;
-      background:linear-gradient(135deg, rgba(139,92,246,.92), rgba(34,211,238,.92));
-      box-shadow:0 20px 45px rgba(139,92,246,.22);
       font-size:3rem;
+      background:linear-gradient(135deg, rgba(139,92,246,.92), rgba(34,211,238,.92));
+      color:#fff;
+      box-shadow:0 18px 44px rgba(139,92,246,.22);
     }
 
     .profile-panel h2{
       margin:0 0 8px;
-      font-size:1.6rem;
+      font-size:1.5rem;
     }
-
-    .profile-panel .sub{
+    .profile-panel p{
+      margin:0;
       color:var(--muted);
-      line-height:1.7;
-      margin:0 0 16px;
-    }
-
-    .tag-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .tag{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-size:.88rem;
-      font-weight:700;
+      line-height:1.75;
     }
 
     .stats{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:14px;
+      gap:12px;
     }
 
     .stat{
@@ -383,126 +455,166 @@
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
     }
-
     .stat strong{
       display:block;
-      font-size:1.9rem;
+      font-size:1.85rem;
       line-height:1;
       margin-bottom:8px;
       font-weight:900;
     }
-
     .stat span{
       color:var(--muted);
+      font-size:.9rem;
       font-weight:600;
-      font-size:.92rem;
     }
 
-    .section{
-      padding:22px 0;
+    .split-2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
     }
 
-    .section-title{
+    .section-head{
       display:flex;
-      align-items:end;
       justify-content:space-between;
-      gap:16px;
-      margin:0 0 18px;
+      align-items:end;
+      gap:14px;
+      margin:0 0 16px;
     }
-
-    .section-title h3{
+    .section-head h3{
       margin:0;
-      font-size:1.6rem;
+      font-size:1.55rem;
       letter-spacing:-.02em;
     }
-
-    .section-title p{
+    .section-head p{
       margin:0;
       color:var(--muted);
-      max-width:58ch;
+      max-width:66ch;
       line-height:1.7;
-      font-size:.98rem;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:18px;
     }
 
     .card{
       padding:22px;
-      border-radius:24px;
       border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      backdrop-filter: var(--blur);
-      position:relative;
-      overflow:hidden;
-      transition:.3s ease;
-    }
-
-    [data-theme="light"] .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.62));
+      background:rgba(255,255,255,.06);
+      transition:.28s ease;
     }
 
     .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(139,92,246,.25);
-      box-shadow:0 24px 60px rgba(0,0,0,.16);
-    }
-
-    .card .icon{
-      width:52px; height:52px;
-      border-radius:18px;
-      display:grid; place-items:center;
-      font-size:1.2rem;
-      background:linear-gradient(135deg, rgba(139,92,246,.18), rgba(34,211,238,.16));
-      border:1px solid var(--line);
-      margin-bottom:14px;
+      transform:translateY(-5px);
+      border-color:rgba(139,92,246,.24);
     }
 
     .card h4{
       margin:0 0 8px;
-      font-size:1.2rem;
+      font-size:1.15rem;
     }
 
     .card p{
       margin:0;
       color:var(--muted);
-      line-height:1.7;
+      line-height:1.72;
       font-size:.95rem;
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      margin-bottom:14px;
+      background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(34,211,238,.14));
+      border:1px solid var(--line);
+      font-size:1.2rem;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .photo-card{
+      overflow:hidden;
+      padding:0;
+    }
+
+    .photo{
+      position:relative;
+      min-height:260px;
+      background:#111827;
+    }
+
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      min-height:260px;
+      filter:saturate(1.08) contrast(1.04);
+    }
+
+    .photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.52));
+      pointer-events:none;
+    }
+
+    .photo-label{
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:16px;
+      z-index:2;
+      padding:14px 15px;
+      border-radius:18px;
+      background:rgba(5,10,20,.48);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(12px);
+    }
+
+    .photo-label strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:1rem;
+    }
+    .photo-label span{
+      color:rgba(255,255,255,.82);
+      font-size:.9rem;
+      line-height:1.55;
     }
 
     .timeline{
       display:grid;
-      gap:14px;
+      gap:12px;
     }
 
     .timeline-item{
       display:grid;
-      grid-template-columns: 124px 1fr;
+      grid-template-columns:120px 1fr;
       gap:14px;
       padding:18px 20px;
-      border-radius:20px;
+      border-radius:22px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
     }
-
     .timeline-item .year{
-      font-weight:900;
       color:var(--secondary);
+      font-weight:900;
       letter-spacing:.08em;
     }
-
-    .timeline-item .content h4{
+    .timeline-item h4{
       margin:0 0 6px;
       font-size:1.08rem;
     }
-
-    .timeline-item .content p{
+    .timeline-item p{
       margin:0;
       color:var(--muted);
-      line-height:1.75;
+      line-height:1.72;
     }
 
     .showcase{
@@ -512,55 +624,52 @@
     }
 
     .project{
-      overflow:hidden;
       padding:0;
+      overflow:hidden;
     }
 
-    .project .thumb{
-      height:220px;
-      background:
-        radial-gradient(circle at 25% 30%, rgba(255,255,255,.22), transparent 18%),
-        linear-gradient(135deg, rgba(139,92,246,.88), rgba(34,211,238,.76), rgba(244,114,182,.80));
+    .project-top{
+      min-height:210px;
+      background:linear-gradient(135deg, rgba(139,92,246,.94), rgba(34,211,238,.82), rgba(244,114,182,.80));
       position:relative;
       isolation:isolate;
     }
-
-    .project .thumb::before{
+    .project-top::before{
       content:"";
       position:absolute;
-      inset:14px;
-      border:1px solid rgba(255,255,255,.28);
+      inset:16px;
+      border:1px solid rgba(255,255,255,.24);
       border-radius:22px;
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
-      backdrop-filter: blur(8px);
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(10px);
     }
-
-    .project .thumb .symbol{
+    .project-top .emoji{
       position:absolute;
-      inset:auto 26px 22px auto;
+      right:22px;
+      bottom:20px;
       font-size:3rem;
-      opacity:.9;
+      z-index:2;
     }
 
-    .project .body{
+    .project-body{
       padding:20px;
     }
-
-    .project .meta{
+    .project-body .meta{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:8px;
+      gap:10px;
+      align-items:center;
       margin-bottom:10px;
+      flex-wrap:wrap;
     }
 
     .badge{
-      font-size:.75rem;
-      font-weight:800;
+      font-size:.74rem;
+      font-weight:900;
       letter-spacing:.08em;
       text-transform:uppercase;
       color:#fff;
-      background:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.16);
       border:1px solid rgba(255,255,255,.18);
       border-radius:999px;
       padding:7px 10px;
@@ -568,9 +677,8 @@
 
     .project h4{
       margin:0 0 8px;
-      font-size:1.2rem;
+      font-size:1.15rem;
     }
-
     .project p{
       margin:0 0 14px;
       color:var(--muted);
@@ -583,73 +691,83 @@
       flex-wrap:wrap;
       gap:8px;
     }
-
     .mini{
       padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
       color:var(--muted);
       font-size:.84rem;
-      background:rgba(255,255,255,.05);
     }
 
-    .tools-grid{
+    .tool-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns:1.05fr .95fr;
       gap:18px;
     }
 
-    .tool-box{
+    .tool{
       padding:22px;
-      border-radius:24px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
-      backdrop-filter: var(--blur);
     }
 
-    .tool-input{
+    .tool h4{
+      margin:0 0 8px;
+      font-size:1.18rem;
+    }
+    .tool p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    .field input, .field textarea, .field select{
       width:100%;
+      border-radius:16px;
       border:1px solid var(--line);
-      border-radius:18px;
       background:rgba(255,255,255,.05);
       color:var(--text);
-      padding:14px 16px;
+      padding:13px 14px;
       outline:none;
-      transition:.25s ease;
     }
 
-    .tool-input:focus{
-      border-color:rgba(139,92,246,.42);
-      box-shadow:0 0 0 4px rgba(139,92,246,.12);
+    .field textarea{
+      min-height:136px;
+      resize:vertical;
     }
 
-    .tool-output{
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus{
+      border-color:rgba(139,92,246,.4);
+      box-shadow:0 0 0 4px rgba(139,92,246,.10);
+    }
+
+    .output{
       margin-top:14px;
-      min-height:120px;
-      padding:16px;
+      min-height:126px;
       border-radius:18px;
       border:1px dashed rgba(139,92,246,.30);
       background:rgba(255,255,255,.04);
+      padding:16px;
+      line-height:1.85;
       white-space:pre-wrap;
-      line-height:1.8;
-      color:var(--text);
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:18px;
     }
 
     .quote-box{
-      padding:24px;
-      border-radius:24px;
+      padding:22px;
       border:1px solid var(--line);
       background:
-        radial-gradient(circle at 20% 20%, rgba(34,211,238,.14), transparent 35%),
+        radial-gradient(circle at 20% 20%, rgba(34,211,238,.14), transparent 32%),
         rgba(255,255,255,.06);
       position:relative;
-      overflow:hidden;
     }
 
     .quote-box blockquote{
@@ -657,26 +775,26 @@
       font-family:"Noto Serif Devanagari", serif;
       font-size:1.55rem;
       line-height:1.5;
-      font-weight:700;
+      font-weight:800;
     }
 
-    .quote-box .trans{
-      margin-top:14px;
+    .quote-box .meaning{
+      margin-top:12px;
       color:var(--muted);
-      line-height:1.8;
+      line-height:1.75;
     }
 
-    .quote-actions{
-      margin-top:16px;
+    .actions-row{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
     }
 
     .chat{
       display:flex;
       flex-direction:column;
-      min-height:420px;
+      min-height:440px;
     }
 
     .chat-window{
@@ -690,7 +808,7 @@
       background:rgba(255,255,255,.04);
       overflow:auto;
       max-height:320px;
-      margin-bottom:12px;
+      margin-top:12px;
     }
 
     .msg{
@@ -700,14 +818,12 @@
       line-height:1.7;
       font-size:.95rem;
     }
-
     .msg.user{
       align-self:flex-end;
-      background:linear-gradient(135deg, rgba(139,92,246,.85), rgba(34,211,238,.75));
+      background:linear-gradient(135deg, rgba(139,92,246,.86), rgba(34,211,238,.76));
       color:#fff;
       border-bottom-right-radius:6px;
     }
-
     .msg.bot{
       align-self:flex-start;
       background:rgba(255,255,255,.08);
@@ -719,24 +835,23 @@
     .chat-input{
       display:flex;
       gap:10px;
+      margin-top:12px;
     }
-
     .chat-input input{
       flex:1;
       min-width:0;
+      border-radius:16px;
       border:1px solid var(--line);
-      border-radius:18px;
       background:rgba(255,255,255,.05);
       color:var(--text);
       padding:14px 16px;
       outline:none;
     }
-
     .chat-input button{
       border:0;
-      border-radius:18px;
+      border-radius:16px;
       padding:14px 16px;
-      font-weight:800;
+      font-weight:900;
       color:#fff;
       background:linear-gradient(135deg, var(--primary), var(--accent));
       cursor:pointer;
@@ -747,20 +862,17 @@
       grid-template-columns:repeat(3, 1fr);
       gap:18px;
     }
-
     .blog-card{
       border-radius:24px;
       overflow:hidden;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
     }
-
     .blog-top{
-      height:140px;
+      height:150px;
       background:linear-gradient(135deg, rgba(139,92,246,.92), rgba(244,114,182,.82));
       position:relative;
     }
-
     .blog-top::after{
       content:"";
       position:absolute;
@@ -768,26 +880,17 @@
       border-radius:18px;
       border:1px solid rgba(255,255,255,.24);
     }
-
     .blog-body{
       padding:18px;
     }
-
     .blog-body h4{
       margin:0 0 8px;
-      font-size:1.08rem;
+      font-size:1.05rem;
     }
-
     .blog-body p{
       margin:0 0 14px;
       color:var(--muted);
       line-height:1.7;
-    }
-
-    .blog-body .read{
-      color:var(--secondary);
-      font-weight:800;
-      font-size:.92rem;
     }
 
     .social-grid{
@@ -795,104 +898,56 @@
       grid-template-columns:repeat(3, 1fr);
       gap:18px;
     }
-
     .social-card{
       padding:22px;
       border-radius:24px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
-      transition:.3s ease;
+      transition:.28s ease;
     }
-
     .social-card:hover{
-      transform:translateY(-5px) scale(1.01);
+      transform:translateY(-5px);
     }
-
     .social-card .title{
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:900;
       margin-bottom:10px;
+      font-weight:900;
     }
-
     .social-card p{
       margin:0 0 12px;
       color:var(--muted);
       line-height:1.7;
     }
-
     .social-card a{
       color:var(--secondary);
       font-weight:800;
     }
 
-    .contact{
+    .contact-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
     }
-
-    .form{
+    .contact-card{
       padding:22px;
-      border-radius:24px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
     }
-
-    .field{
-      display:grid;
-      gap:8px;
-      margin-bottom:14px;
-    }
-
-    .field label{
-      font-size:.9rem;
-      color:var(--muted);
-      font-weight:700;
-    }
-
-    .field input,
-    .field textarea{
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:13px 14px;
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      outline:none;
-      resize:vertical;
-    }
-
-    .field textarea{min-height:140px}
-    .field input:focus,
-    .field textarea:focus{
-      border-color:rgba(34,211,238,.4);
-      box-shadow:0 0 0 4px rgba(34,211,238,.10);
-    }
-
-    .contact-info{
-      padding:22px;
-      border-radius:24px;
-      border:1px solid var(--line);
-      background:
-        radial-gradient(circle at top right, rgba(244,114,182,.12), transparent 28%),
-        rgba(255,255,255,.06);
-    }
-
-    .contact-info h4{margin:0 0 10px}
-    .contact-info p{
-      margin:0 0 18px;
+    .contact-card h4{margin:0 0 8px}
+    .contact-card p{
+      margin:0;
       color:var(--muted);
       line-height:1.75;
     }
 
-    .info-list{
+    .list{
       display:grid;
       gap:12px;
+      margin-top:18px;
     }
-
-    .info-item{
+    .list-item{
       padding:14px 16px;
       border-radius:18px;
       background:rgba(255,255,255,.05);
@@ -904,17 +959,24 @@
     }
 
     .footer{
-      padding:34px 0 52px;
-      color:var(--muted);
+      padding:30px 0 50px;
       text-align:center;
+      color:var(--muted);
       font-size:.92rem;
+    }
+
+    .floating-theme{
+      position:fixed;
+      left:16px;
+      bottom:16px;
+      z-index:70;
     }
 
     .floating-music{
       position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:60;
+      right:16px;
+      bottom:16px;
+      z-index:70;
       display:flex;
       align-items:center;
       gap:10px;
@@ -925,122 +987,56 @@
       box-shadow:0 22px 45px rgba(0,0,0,.24);
       border:0;
       cursor:pointer;
-      font-weight:800;
-    }
-
-    .floating-theme{
-      position:fixed;
-      left:18px;
-      bottom:18px;
-      z-index:60;
-    }
-
-    .loading{
-      position:fixed;
-      inset:0;
-      z-index:2000;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg, var(--bg), var(--bg2));
-      transition:.55s ease;
-    }
-
-    .loading.hide{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
-
-    .loader{
-      text-align:center;
-      width:min(360px, 90vw);
-    }
-
-    .ring{
-      width:78px; height:78px;
-      border-radius:50%;
-      margin:0 auto 18px;
-      border:4px solid rgba(255,255,255,.10);
-      border-top-color: var(--secondary);
-      border-right-color: var(--primary);
-      animation:spin 1s linear infinite;
-      box-shadow:0 0 35px rgba(34,211,238,.22);
-    }
-
-    .loader h2{
-      margin:0 0 8px;
-      font-size:1.2rem;
-    }
-
-    .loader p{
-      margin:0;
-      color:var(--muted);
-    }
-
-    canvas#particles{
-      position:fixed;
-      inset:0;
-      z-index:1;
-      pointer-events:none;
-      opacity:.9;
+      font-weight:900;
     }
 
     .reveal{
       opacity:0;
-      transform: translateY(18px);
-      transition: .7s ease;
+      transform:translateY(18px);
+      transition:.7s ease;
     }
-
     .reveal.show{
       opacity:1;
-      transform: translateY(0);
+      transform:translateY(0);
     }
 
+    .soft{color:var(--muted)}
     .divider{
       height:1px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
       margin:14px 0;
     }
 
-    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes spin{
+      to{transform:rotate(360deg)}
+    }
     @keyframes floaty{
-      0%,100%{transform:translateY(0px)}
+      0%,100%{transform:translateY(0)}
       50%{transform:translateY(-8px)}
     }
-
     .float{
       animation:floaty 5s ease-in-out infinite;
     }
 
-    .kbd{
-      font-family: "Noto Serif Devanagari", serif;
-      line-height:1.85;
-      color:var(--text);
-      min-height:160px;
-    }
-
-    .soft{
-      color:var(--muted);
-    }
-
-    @media (max-width: 1080px){
-      .hero-grid, .tools-grid, .contact, .showcase, .grid-3, .blog-grid, .social-grid, .split{
-        grid-template-columns:1fr;
-      }
-      .nav-links{display:none}
-      .timeline-item{
+    @media (max-width: 1100px){
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:relative; top:auto}
+      .hero, .tool-grid, .gallery, .showcase, .blog-grid, .social-grid, .contact-grid, .split-2{
         grid-template-columns:1fr;
       }
     }
 
-    @media (max-width: 720px){
-      .hero{padding-top:54px}
-      .hero-card, .profile-panel, .card, .tool-box, .quote-box, .form, .contact-info{
+    @media (max-width: 760px){
+      .topbar-inner{
+        gap:10px;
+        padding:10px 12px;
+      }
+      .brand small{display:none}
+      .actions{gap:8px}
+      .hero-card, .profile-panel, .card, .tool, .contact-card{
         padding:20px;
       }
       .stats{grid-template-columns:1fr 1fr}
-      .nav-inner{padding:10px 12px}
-      .brand small{display:none}
       .floating-theme{left:12px; bottom:12px}
       .floating-music{right:12px; bottom:12px}
     }
@@ -1059,8 +1055,8 @@
   <div class="loading" id="loading">
     <div class="loader">
       <div class="ring"></div>
-      <h2>Loading your premium Sanskrit experience</h2>
-      <p>Crafting visuals, motion, and interaction...</p>
+      <h2>Loading premium Sanskrit experience</h2>
+      <p>Preparing images, motion, and interaction.</p>
     </div>
   </div>
 
@@ -1069,54 +1065,73 @@
   <canvas id="particles"></canvas>
 
   <div class="wrap">
-    <header class="nav" role="banner">
-      <div class="nav-inner">
+    <header class="topbar" aria-label="Top navigation">
+      <div class="topbar-inner">
         <a class="brand" href="#home" aria-label="Go to home">
           <div class="logo">ॐ</div>
           <div>
             अभिषेक शर्मा
-            <small>BHU • Sanskrit • Tech • Teaching</small>
+            <small>Sanskrit • Tech • Teaching</small>
           </div>
         </a>
 
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#timeline">Timeline</a>
-          <a href="#projects">Projects</a>
-          <a href="#tools">Tools</a>
-          <a href="#blog">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="nav-actions">
-          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
-          <a class="icon-btn" href="#contact" aria-label="Open contact section">✦</a>
+        <div class="actions">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☾</button>
+          <a class="pill-btn" href="#contact">Contact</a>
         </div>
       </div>
     </header>
 
-    <main id="home">
-      <section class="hero">
-        <div class="container hero-grid">
+    <div class="layout" id="home">
+      <aside class="sidebar glass reveal">
+        <h3>Quick pages</h3>
+        <p>Cleaner navigation, fewer tabs, better flow.</p>
+
+        <div class="quick-nav">
+          <select id="pageSelect" aria-label="Quick page selector">
+            <option value="home">Home</option>
+            <option value="about">About</option>
+            <option value="gallery">Gallery</option>
+            <option value="timeline">Timeline</option>
+            <option value="projects">Projects</option>
+            <option value="tools">Tools</option>
+            <option value="assistant">Ask AI</option>
+            <option value="blog">Blog</option>
+            <option value="social">Social</option>
+            <option value="contact">Contact</option>
+          </select>
+
+          <a href="#home">Home <span>↗</span></a>
+          <a href="#projects">Projects <span>↗</span></a>
+          <a href="#tools">Tools <span>↗</span></a>
+          <a href="#assistant">AI Assistant <span>↗</span></a>
+          <a href="#contact">Download / Contact <span>↗</span></a>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section class="section hero">
           <div class="hero-card glass reveal">
-            <div class="eyebrow">✨ Ultra-modern Sanskrit inspired digital identity</div>
-            <h1><span class="gradient-text">संस्कृत</span> को <span class="gradient-text">technology</span> के साथ elegant रूप में जोड़ना</h1>
+            <div class="eyebrow">✨ Ultra-modern cultural portfolio with real visuals</div>
+            <h1><span class="gradient-text">संस्कृत</span> को <span class="gradient-text">modern web</span> की premium भाषा में दिखाना</h1>
             <p>
-              नमो नमः! यह एक premium portfolio-style website है, जिसमें teaching, Sanskrit learning, app ideas, projects,
-              AI-style interaction, and beautiful visual storytelling को एक modern product experience की तरह present किया गया है.
+              यह version ज्यादा clean है, ज्यादा spacious है, और इसमें images, sections, quick pages, better transliteration,
+              smarter AI replies, and a calmer visual hierarchy दी गई है। Kashi ghats, Ganga Arati, spirituality, and modern perspective
+              को cultural dignity के साथ present किया गया है।
             </p>
 
             <div class="hero-actions">
-              <a class="cta" href="#projects">Explore Projects →</a>
-              <a class="pill-btn" href="#contact">Download CV / Contact</a>
-              <button class="pill-btn" id="scrollDemo">See Live Demo ↓</button>
+              <a class="cta" href="#gallery">View Images →</a>
+              <a class="pill-btn" href="#assistant">Try AI</a>
+              <a class="pill-btn" href="#tools">Use Translator</a>
             </div>
 
-            <div class="hero-meta">
-              <span class="meta-chip">🪈 Flute audio</span>
-              <span class="meta-chip">📱 Mobile-first responsive</span>
-              <span class="meta-chip">⚡ Smooth motion</span>
-              <span class="meta-chip">🧠 Sanskrit learning tools</span>
+            <div class="hero-tags">
+              <span class="tag">Mobile-first</span>
+              <span class="tag">Glassmorphism</span>
+              <span class="tag">SEO-ready</span>
+              <span class="tag">Smooth motion</span>
+              <span class="tag">Real image blocks</span>
             </div>
           </div>
 
@@ -1124,426 +1139,417 @@
             <div class="profile-panel glass reveal float">
               <div class="avatar">🪷</div>
               <h2>अभिषेक शर्मा</h2>
-              <p class="sub">
-                BHU background, Sanskrit teaching mindset, mathematics & science clarity, and modern app development thinking — all in one elegant digital presence.
+              <p>
+                BHU inspiration, Sanskrit teaching mindset, mathematics clarity, science understanding, and modern app thinking — all presented with cultural balance.
               </p>
-              <div class="tag-row">
+              <div class="divider"></div>
+              <div class="tag-row hero-tags">
                 <span class="tag">संस्कृत व्याकरण</span>
                 <span class="tag">गणित विशेषज्ञ</span>
                 <span class="tag">विज्ञान शिक्षण</span>
                 <span class="tag">Swift / Kotlin</span>
-                <span class="tag">AI ideas</span>
               </div>
             </div>
 
             <div class="stats reveal">
-              <div class="stat glass">
-                <strong data-count="120">0</strong>
-                <span>Teaching notes</span>
-              </div>
-              <div class="stat glass">
-                <strong data-count="35">0</strong>
-                <span>Projects & ideas</span>
-              </div>
-              <div class="stat glass">
-                <strong data-count="8">0</strong>
-                <span>Learning tools</span>
-              </div>
-              <div class="stat glass">
-                <strong data-count="99">0</strong>
-                <span>Creative energy</span>
-              </div>
+              <div class="stat glass"><strong data-count="120">0</strong><span>Study notes</span></div>
+              <div class="stat glass"><strong data-count="35">0</strong><span>Creative ideas</span></div>
+              <div class="stat glass"><strong data-count="8">0</strong><span>Learning tools</span></div>
+              <div class="stat glass"><strong data-count="99">0</strong><span>Energy level</span></div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="about">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="about">
+          <div class="section-head reveal">
             <div>
               <h3>About & vision</h3>
-              <p>A refined digital profile with clarity, beauty, and serious functionality.</p>
+              <p>A polished, less crowded structure with more breathing space and a stronger identity.</p>
             </div>
           </div>
 
-          <div class="grid-3">
-            <article class="card reveal">
+          <div class="split-2">
+            <article class="card glass reveal">
               <div class="icon">✦</div>
-              <h4>Premium typography</h4>
-              <p>Devanagari-friendly type, strong hierarchy, elegant spacing, and a clean editorial feel that looks modern on all screens.</p>
+              <h4>Clear structure</h4>
+              <p>Sections are separated so the page feels premium, readable, and easier to explore on mobile and desktop.</p>
             </article>
 
-            <article class="card reveal">
+            <article class="card glass reveal">
               <div class="icon">⚙</div>
-              <h4>Product-style architecture</h4>
-              <p>Every section is designed like a real digital product: hero, showcase, stats, tools, assistant, blog, and contact flow.</p>
-            </article>
-
-            <article class="card reveal">
-              <div class="icon">✦</div>
-              <h4>Future-ready systems</h4>
-              <p>The design is ready to connect later with Next.js, Firebase, CMS, login/signup, admin panel, and database-backed content.</p>
+              <h4>Cultural modernism</h4>
+              <p>Kashi and Ganga visuals are used alongside a clean contemporary layout so tradition and technology feel connected.</p>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="timeline">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="gallery">
+          <div class="section-head reveal">
+            <div>
+              <h3>Image gallery</h3>
+              <p>Use these as real visual anchors. Each card has a cultural tone with a modern editorial presentation.</p>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <article class="card photo-card glass reveal">
+              <div class="photo">
+                <img
+                  src="https://source.unsplash.com/1600x1000/?varanasi,ghats,ganga"
+                  alt="Kashi ghats by the river"
+                  loading="lazy"
+                />
+                <div class="photo-label">
+                  <strong>Kashi Ghats</strong>
+                  <span>Stone steps, river light, timeless spiritual rhythm, and a calm heritage feel.</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card photo-card glass reveal">
+              <div class="photo">
+                <img
+                  src="https://source.unsplash.com/1600x1000/?ganga,aarti,varanasi"
+                  alt="Ganga Aarti scene"
+                  loading="lazy"
+                />
+                <div class="photo-label">
+                  <strong>Ganga Arati</strong>
+                  <span>Lamps, devotion, incense, and riverfront ambience in a premium visual frame.</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card photo-card glass reveal">
+              <div class="photo">
+                <img
+                  src="https://source.unsplash.com/1600x1000/?india,spiritual,temple,light"
+                  alt="Spiritual atmosphere"
+                  loading="lazy"
+                />
+                <div class="photo-label">
+                  <strong>Spiritual Context</strong>
+                  <span>Warm light, sacred architecture, and a subtle devotional atmosphere.</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card photo-card glass reveal">
+              <div class="photo">
+                <img
+                  src="https://source.unsplash.com/1600x1000/?indian,student,laptop,study"
+                  alt="Modern perspective and study environment"
+                  loading="lazy"
+                />
+                <div class="photo-label">
+                  <strong>Modern Perspective</strong>
+                  <span>Technology, study, and cultural continuity presented together.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="timeline">
+          <div class="section-head reveal">
             <div>
               <h3>Timeline & achievements</h3>
-              <p>A concise journey presented in a polished, high-end layout.</p>
+              <p>Shorter, cleaner, and more elegant than crowded tabs.</p>
             </div>
           </div>
 
           <div class="timeline">
-            <div class="timeline-item reveal glass">
+            <div class="timeline-item glass reveal">
               <div class="year">2022</div>
-              <div class="content">
-                <h4>Deep Sanskrit foundation</h4>
-                <p>Built strong understanding of grammar, reading, recitation, and explanation-based teaching.</p>
+              <div>
+                <h4>Strong foundation</h4>
+                <p>Built confidence in Sanskrit reading, explanation, and practical teaching style.</p>
               </div>
             </div>
-            <div class="timeline-item reveal glass">
+            <div class="timeline-item glass reveal">
               <div class="year">2024</div>
-              <div class="content">
-                <h4>Tech + education bridge</h4>
-                <p>Started shaping educational tools, UI concepts, and transliteration workflows for modern learners.</p>
+              <div>
+                <h4>Tech integration</h4>
+                <p>Started shaping digital tools, UI systems, transliteration ideas, and app concepts.</p>
               </div>
             </div>
-            <div class="timeline-item reveal glass">
+            <div class="timeline-item glass reveal">
               <div class="year">2026</div>
-              <div class="content">
-                <h4>Interactive Sanskrit experience</h4>
-                <p>Premium portfolio identity with learning tools, chatbot preview, shloka of the day, and project showcases.</p>
+              <div>
+                <h4>Premium portfolio evolution</h4>
+                <p>This version adds images, clean navigation, better assistant replies, and a more professional flow.</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="projects">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="projects">
+          <div class="section-head reveal">
             <div>
               <h3>Projects showcase</h3>
-              <p>Your ideas presented like a professional product studio portfolio.</p>
+              <p>Product-style cards for the Sanskrit keyboard, AI, blog, and downloadable resources.</p>
             </div>
           </div>
 
           <div class="showcase">
-            <article class="project card reveal">
-              <div class="thumb">
-                <div class="symbol">⌨</div>
+            <article class="card project glass reveal">
+              <div class="project-top">
+                <div class="emoji">⌨</div>
               </div>
-              <div class="body">
+              <div class="project-body">
                 <div class="meta">
                   <span class="badge">Keyboard</span>
                   <span class="soft">Interactive demo</span>
                 </div>
                 <h4>Sanskrit Keyboard Project</h4>
-                <p>Typing experience for Devanagari, transliteration, suggestions, and learning-focused input flow.</p>
+                <p>Transliteration, suggestion flow, and an elegant typing experience for Sanskrit learners.</p>
                 <div class="mini-row">
                   <span class="mini">Swift</span>
-                  <span class="mini">Smart suggestions</span>
+                  <span class="mini">Suggestions</span>
                   <span class="mini">Responsive UI</span>
                 </div>
               </div>
             </article>
 
-            <article class="project card reveal">
-              <div class="thumb">
-                <div class="symbol">🧠</div>
+            <article class="card project glass reveal">
+              <div class="project-top" style="background:linear-gradient(135deg, rgba(34,211,238,.88), rgba(16,185,129,.78), rgba(139,92,246,.78));">
+                <div class="emoji">🧠</div>
               </div>
-              <div class="body">
+              <div class="project-body">
                 <div class="meta">
                   <span class="badge">AI</span>
                   <span class="soft">Assistant-ready</span>
                 </div>
                 <h4>AI Sanskrit Assistant</h4>
-                <p>Chat-style assistant for shloka help, grammar support, transliteration, and learning suggestions.</p>
+                <p>Helpful replies for shlokas, grammar, transliteration, and site guidance without random question-bouncing.</p>
                 <div class="mini-row">
-                  <span class="mini">Chat UI</span>
-                  <span class="mini">Voice-ready</span>
+                  <span class="mini">Direct answers</span>
+                  <span class="mini">Learning mode</span>
                   <span class="mini">Future backend</span>
                 </div>
               </div>
             </article>
-
-            <article class="project card reveal">
-              <div class="thumb">
-                <div class="symbol">✎</div>
-              </div>
-              <div class="body">
-                <div class="meta">
-                  <span class="badge">CMS</span>
-                  <span class="soft">Blog system</span>
-                </div>
-                <h4>Blog / Vlog System</h4>
-                <p>Beautiful content cards for lectures, articles, notes, and educational videos in a clear reading-first layout.</p>
-                <div class="mini-row">
-                  <span class="mini">CMS-ready</span>
-                  <span class="mini">SEO-friendly</span>
-                  <span class="mini">Media cards</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="project card reveal">
-              <div class="thumb">
-                <div class="symbol">⬇</div>
-              </div>
-              <div class="body">
-                <div class="meta">
-                  <span class="badge">Resources</span>
-                  <span class="soft">Downloads</span>
-                </div>
-                <h4>Notes & CV Hub</h4>
-                <p>Centralized resource area for PDF notes, resume download, links, and learning materials.</p>
-                <div class="mini-row">
-                  <span class="mini">Downloads</span>
-                  <span class="mini">Contact CTA</span>
-                  <span class="mini">Monetization-ready</span>
-                </div>
-              </div>
-            </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="tools">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="tools">
+          <div class="section-head reveal">
             <div>
               <h3>Sanskrit learning tools</h3>
-              <p>Interactive features that make the website feel alive and useful.</p>
+              <p>Transliteration is now more useful, and the translation box is clearer about what it does.</p>
             </div>
           </div>
 
-          <div class="tools-grid">
-            <div class="tool-box reveal glass">
-              <div class="section-title" style="margin-bottom:10px">
-                <div>
-                  <h3 style="font-size:1.2rem;margin:0">Live Sanskrit transliterator</h3>
-                  <p style="margin-top:6px">Type Roman text and get a Sanskrit-style Devanagari preview.</p>
-                </div>
+          <div class="tool-grid">
+            <div class="tool glass reveal">
+              <h4>Live transliterator + phrase translator</h4>
+              <p>Type Roman text, English words, or simple Hindi phrases. The tool will try to convert common inputs into Sanskrit-style output.</p>
+
+              <div class="field">
+                <label for="translateInput" class="soft">Input</label>
+                <input id="translateInput" type="text" placeholder="Try: namaste, dharma, peace, मेरा नाम..." />
               </div>
 
-              <input class="tool-input" id="transInput" type="text" placeholder="Type here: namo namah, shanti, gita, dharma..." aria-label="Transliteration input">
-              <div class="tool-output kbd" id="transOutput">देवनागरी आउटपुट यहाँ दिखाई देगा।</div>
+              <div class="field">
+                <label for="translateMode" class="soft">Mode</label>
+                <select id="translateMode">
+                  <option value="auto">Auto</option>
+                  <option value="transliterate">Transliterate Roman text</option>
+                  <option value="translate">Translate common phrases</option>
+                </select>
+              </div>
+
+              <div class="output" id="translateOutput">देवनागरी output यहाँ दिखेगा।</div>
+
+              <div class="actions-row">
+                <button class="mini-btn" id="copyTranslation">Copy output</button>
+                <button class="mini-btn" id="sampleEnglish">English sample</button>
+                <button class="mini-btn" id="sampleHindi">Hindi sample</button>
+              </div>
             </div>
 
-            <div class="tool-box reveal glass">
-              <div class="section-title" style="margin-bottom:10px">
-                <div>
-                  <h3 style="font-size:1.2rem;margin:0">Interactive श्लोक of the day</h3>
-                  <p style="margin-top:6px">A rotating spiritual learning highlight.</p>
-                </div>
-              </div>
-
+            <div class="tool glass reveal">
+              <h4>Interactive श्लोक of the day</h4>
               <div class="quote-box">
                 <blockquote id="shlokaText">विद्या ददाति विनयम्।</blockquote>
-                <div class="trans" id="shlokaMeaning">Knowledge gives humility, steadiness, and respect.</div>
-                <div class="quote-actions">
-                  <button class="pill-btn" id="nextShloka">Next Shloka</button>
-                  <button class="pill-btn" id="copyShloka">Copy Shloka</button>
+                <div class="meaning" id="shlokaMeaning">Knowledge gives humility, steadiness, and respect.</div>
+                <div class="actions-row">
+                  <button class="mini-btn" id="nextShloka">Next shloka</button>
+                  <button class="mini-btn" id="copyShloka">Copy shloka</button>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-title reveal">
-            <div>
-              <h3>Voice, music & interactive feel</h3>
-              <p>A floating music control gives the page a premium sensory layer.</p>
-            </div>
-          </div>
-
-          <div class="split">
-            <div class="tool-box reveal glass">
-              <h4 style="margin:0 0 10px">Flute ambience button</h4>
-              <p class="soft" style="margin:0 0 16px">A small Web Audio style ambient tone is generated locally. It starts and stops with one tap.</p>
-              <button class="cta" id="musicBtn">♪ Play Flute Ambience</button>
               <div class="divider"></div>
-              <p class="soft" style="margin:0">Great for a calm, temple-like interface feel without needing an external audio file.</p>
-            </div>
 
-            <div class="tool-box reveal glass">
-              <h4 style="margin:0 0 10px">Loading, scroll, motion</h4>
-              <p class="soft" style="margin:0 0 16px">Built-in progress indicator, reveal animations, smooth sections, and cursor glow create a polished experience.</p>
-              <div class="tag-row" style="margin-top:0">
-                <span class="tag">Loading screen</span>
-                <span class="tag">Progress bar</span>
-                <span class="tag">Glassmorphism</span>
-                <span class="tag">Cursor glow</span>
-              </div>
+              <p class="soft">This section can later connect to a real Sanskrit dictionary, saved notes, and a learning database.</p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="assistant">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="assistant">
+          <div class="section-head reveal">
             <div>
-              <h3>AI chatbot assistant</h3>
-              <p>A stylish front-end assistant area that can later connect to real AI or Firebase backend logic.</p>
+              <h3>Ask AI</h3>
+              <p>The assistant now gives direct helpful responses instead of bouncing the user with another question.</p>
             </div>
           </div>
 
-          <div class="tool-box reveal glass chat">
+          <div class="tool glass chat reveal">
             <div class="chat-window" id="chatWindow" aria-live="polite">
-              <div class="msg bot">नमस्ते! मैं आपका Sanskrit assistant हूँ। Ask me about grammar, shlokas, transliteration, or your website sections.</div>
+              <div class="msg bot">नमस्ते। I can help with Sanskrit grammar, shlokas, translation help, keyboard ideas, site structure, and study planning.</div>
             </div>
+
             <div class="chat-input">
-              <input id="chatInput" type="text" placeholder="Ask something in English or Hindi..." aria-label="Chat input">
+              <input id="chatInput" type="text" placeholder="Ask anything..." aria-label="Ask the AI assistant">
               <button id="sendChat">Send</button>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="section" id="blog">
-        <div class="container">
-          <div class="section-title reveal">
+            <div class="soft" style="margin-top:10px;">
+              Try: “Explain Bhagavad Gita in simple words”, “What is Sanskrit transliteration?”, “Help me improve this site”.
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="blog">
+          <div class="section-head reveal">
             <div>
               <h3>Blog / vlog cards</h3>
-              <p>Editorial content cards designed for teaching, news, articles, and video highlights.</p>
+              <p>Cleaner editorial cards for articles, teachings, and video content.</p>
             </div>
           </div>
 
           <div class="blog-grid">
-            <article class="blog-card reveal">
+            <article class="blog-card glass reveal">
               <div class="blog-top"></div>
               <div class="blog-body">
                 <h4>संस्कृत और मन की clarity</h4>
-                <p>How Sanskrit practice shapes pronunciation, memory, and focused learning in a digital age.</p>
-                <a class="read" href="#contact">Read more →</a>
+                <p>Why sound, rhythm, and structured language help memory and focused learning.</p>
+                <a class="soft" href="#contact" style="font-weight:800;">Read more →</a>
               </div>
             </article>
 
-            <article class="blog-card reveal">
+            <article class="blog-card glass reveal">
               <div class="blog-top" style="background:linear-gradient(135deg, rgba(34,211,238,.92), rgba(16,185,129,.82));"></div>
               <div class="blog-body">
                 <h4>Teaching with modern UI</h4>
-                <p>A beautiful presentation makes educational content easier to consume and more memorable.</p>
-                <a class="read" href="#contact">Read more →</a>
+                <p>Educational content feels stronger when the presentation is elegant and easy to follow.</p>
+                <a class="soft" href="#contact" style="font-weight:800;">Read more →</a>
               </div>
             </article>
 
-            <article class="blog-card reveal">
+            <article class="blog-card glass reveal">
               <div class="blog-top" style="background:linear-gradient(135deg, rgba(245,158,11,.92), rgba(244,114,182,.82));"></div>
               <div class="blog-body">
                 <h4>From keyboard to platform</h4>
-                <p>Your keyboard idea can grow into a complete ecosystem: learning, resources, and community.</p>
-                <a class="read" href="#contact">Read more →</a>
+                <p>Your keyboard idea can grow into a complete ecosystem for learning, notes, and media.</p>
+                <a class="soft" href="#contact" style="font-weight:800;">Read more →</a>
               </div>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="social">
+          <div class="section-head reveal">
             <div>
-              <h3>Social media cards</h3>
-              <p>Clean branded cards for your public presence.</p>
+              <h3>Social cards</h3>
+              <p>Simple, polished cards for external platforms.</p>
             </div>
           </div>
 
           <div class="social-grid">
-            <div class="social-card reveal">
+            <div class="social-card glass reveal">
               <div class="title">📺 YouTube</div>
-              <p>Teaching demos, Sanskrit lessons, and knowledge videos in a friendly format.</p>
+              <p>Teaching demos, Sanskrit lessons, and knowledge videos.</p>
               <a href="https://youtube.com/@संस्कृतस्यछात्रः" target="_blank" rel="noopener">Open channel →</a>
             </div>
 
-            <div class="social-card reveal">
+            <div class="social-card glass reveal">
               <div class="title">📸 Instagram</div>
-              <p>Short content, updates, reels, and personal academic presence.</p>
+              <p>Short updates, reels, and creative academic presence.</p>
               <a href="https://instagram.com/sanskritkavidyarthi" target="_blank" rel="noopener">Open profile →</a>
             </div>
 
-            <div class="social-card reveal">
+            <div class="social-card glass reveal">
               <div class="title">🌸 Instagram</div>
-              <p>Secondary identity card for family, creative, or personal branding.</p>
+              <p>Secondary profile card for personal or creative identity.</p>
               <a href="https://instagram.com/@ऋतुराजशर्मा" target="_blank" rel="noopener">Open profile →</a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="contact">
-        <div class="container">
-          <div class="section-title reveal">
+        <section class="section" id="contact">
+          <div class="section-head reveal">
             <div>
               <h3>Contact & download</h3>
-              <p>Professional call-to-action area with contact form and CV button.</p>
+              <p>Professional call-to-action area with clean spacing and clear actions.</p>
             </div>
           </div>
 
-          <div class="contact">
-            <form class="form reveal glass">
+          <div class="contact-grid">
+            <form class="contact-card glass reveal" onsubmit="return false;">
               <div class="field">
-                <label for="name">Name</label>
+                <label for="name" class="soft">Name</label>
                 <input id="name" type="text" placeholder="Your name">
               </div>
+
               <div class="field">
-                <label for="email">Email</label>
+                <label for="email" class="soft">Email</label>
                 <input id="email" type="email" placeholder="you@example.com">
               </div>
+
               <div class="field">
-                <label for="message">Message</label>
+                <label for="message" class="soft">Message</label>
                 <textarea id="message" placeholder="Tell me about your project, collaboration, or learning need..."></textarea>
               </div>
-              <button type="button" class="cta" id="sendForm">Send Message</button>
-              <a class="pill-btn" href="#" download style="display:inline-flex; margin-left:10px; vertical-align:middle;">Download CV</a>
+
+              <div class="actions-row">
+                <button class="cta" id="sendForm" type="button">Send Message</button>
+                <a class="pill-btn" href="#" download>Download CV</a>
+              </div>
             </form>
 
-            <div class="contact-info reveal glass">
-              <h4>What this page can evolve into</h4>
+            <div class="contact-card glass reveal">
+              <h4>What this can become next</h4>
               <p>
-                This front-end is already shaped like a real product. Next steps can plug in a database, Firebase auth, blog CMS,
-                admin dashboard, downloads, monetization, PWA support, offline mode, and full Next.js deployment.
+                This clean front-end is now ready for real backend features like login/signup, blog CMS, notes download,
+                Firebase connection, admin dashboard, offline support, PWA mode, SEO setup, and monetization.
               </p>
 
-              <div class="info-list">
-                <div class="info-item"><span>Login / Signup</span><strong>Ready to connect</strong></div>
-                <div class="info-item"><span>Database</span><strong>Firebase / SQL</strong></div>
-                <div class="info-item"><span>CMS</span><strong>Blog + Notes</strong></div>
-                <div class="info-item"><span>SEO</span><strong>Built-in foundations</strong></div>
+              <div class="list">
+                <div class="list-item"><span>Login / Signup</span><strong>Ready</strong></div>
+                <div class="list-item"><span>Database</span><strong>Firebase / SQL</strong></div>
+                <div class="list-item"><span>CMS</span><strong>Blog + Notes</strong></div>
+                <div class="list-item"><span>SEO</span><strong>Built-in foundation</strong></div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer class="footer">
-        © 2026 अभिषेक शर्मा — BHU संस्कृत • education • developer portfolio
-      </footer>
-    </main>
+        <footer class="footer">
+          © 2026 अभिषेक शर्मा — Sanskrit • culture • technology
+        </footer>
+      </main>
+    </div>
   </div>
 
-  <button class="floating-theme icon-btn" id="themeToggle2" aria-label="Toggle theme">☾</button>
-  <button class="floating-music" id="musicBtn2" aria-label="Play or stop flute ambience">🎵 Music</button>
+  <button class="icon-btn floating-theme" id="themeToggle2" aria-label="Toggle theme">☀</button>
+  <button class="floating-music" id="musicBtn" aria-label="Play flute ambience">🎵 Music</button>
 
   <script>
-    // Theme
     const root = document.documentElement;
+    const loading = document.getElementById('loading');
+    const progress = document.getElementById('progress');
+    const glow = document.getElementById('cursorGlow');
+    const pageSelect = document.getElementById('pageSelect');
     const themeToggle = document.getElementById('themeToggle');
     const themeToggle2 = document.getElementById('themeToggle2');
+
+    // Theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     root.setAttribute('data-theme', savedTheme);
-    updateThemeIcons(savedTheme);
+    syncThemeIcons(savedTheme);
 
-    function updateThemeIcons(theme){
+    function syncThemeIcons(theme){
       const isLight = theme === 'light';
       themeToggle.textContent = isLight ? '☀' : '☾';
       themeToggle2.textContent = isLight ? '☾' : '☀';
@@ -1553,155 +1559,312 @@
       const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      updateThemeIcons(next);
+      syncThemeIcons(next);
     }
 
     themeToggle.addEventListener('click', toggleTheme);
     themeToggle2.addEventListener('click', toggleTheme);
 
-    // Loading screen
+    // Loading
     window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('loading').classList.add('hide'), 700);
+      setTimeout(() => loading.classList.add('hide'), 650);
     });
 
-    // Scroll progress
-    const progress = document.getElementById('progress');
+    // Progress
     window.addEventListener('scroll', () => {
-      const h = document.documentElement;
-      const percent = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-      progress.style.width = percent.toFixed(2) + '%';
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      progress.style.width = pct + '%';
     });
 
     // Cursor glow
-    const glow = document.getElementById('cursorGlow');
     window.addEventListener('pointermove', (e) => {
       glow.style.left = e.clientX + 'px';
       glow.style.top = e.clientY + 'px';
     });
 
+    // Quick pages
+    pageSelect.addEventListener('change', () => {
+      document.getElementById(pageSelect.value).scrollIntoView({ behavior: 'smooth' });
+    });
+
     // Reveal on scroll
     const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
+    const revealIO = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.12 });
-    revealEls.forEach(el => io.observe(el));
+    revealEls.forEach(el => revealIO.observe(el));
 
     // Counters
-    const counterEls = document.querySelectorAll('[data-count]');
-    const counterIO = new IntersectionObserver((entries) => {
+    const counters = document.querySelectorAll('[data-count]');
+    const countIO = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const target = parseInt(el.dataset.count, 10);
-        let current = 0;
+        let cur = 0;
         const step = Math.max(1, Math.ceil(target / 60));
         const timer = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
+          cur += step;
+          if (cur >= target) {
+            cur = target;
             clearInterval(timer);
           }
-          el.textContent = current + (target === 99 ? '%' : '+');
-        }, 20);
-        counterIO.unobserve(el);
+          el.textContent = cur + (target === 99 ? '%' : '+');
+        }, 18);
+        countIO.unobserve(el);
       });
-    }, { threshold: 0.65 });
-    counterEls.forEach(el => counterIO.observe(el));
+    }, { threshold: 0.6 });
+    counters.forEach(el => countIO.observe(el));
 
-    // Smooth section demo scroll
-    document.getElementById('scrollDemo').addEventListener('click', () => {
-      document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+    // Image fallback SVGs
+    function svgData(title, subtitle) {
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#111827"/>
+              <stop offset="50%" stop-color="#1f2937"/>
+              <stop offset="100%" stop-color="#312e81"/>
+            </linearGradient>
+            <radialGradient id="r" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#67e8f9" stop-opacity=".38"/>
+              <stop offset="45%" stop-color="#8b5cf6" stop-opacity=".20"/>
+              <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="900" fill="url(#g)"/>
+          <rect width="1200" height="900" fill="url(#r)"/>
+          <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="3">
+            <path d="M0 580 C 120 540, 230 620, 360 590 S 620 540, 760 590 S 1000 640, 1200 570" />
+            <path d="M0 650 C 130 620, 210 700, 360 675 S 620 615, 770 680 S 1010 730, 1200 660" />
+          </g>
+          <text x="60" y="170" fill="#ffffff" font-size="66" font-family="Inter, Arial" font-weight="800">${title}</text>
+          <text x="60" y="240" fill="#cbd5e1" font-size="30" font-family="Inter, Arial">${subtitle}</text>
+          <text x="60" y="810" fill="#e2e8f0" font-size="28" font-family="Inter, Arial">Sanskrit • Culture • Modern UI</text>
+        </svg>`;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    document.querySelectorAll('img').forEach((img) => {
+      img.addEventListener('error', () => {
+        const label = img.alt || 'Cultural visual';
+        const sub = img.closest('.photo')?.querySelector('.photo-label span')?.textContent || 'Cultural context and modern presentation.';
+        img.src = svgData(label, sub);
+      }, { once: true });
     });
 
-    // Transliterator
-    const transInput = document.getElementById('transInput');
-    const transOutput = document.getElementById('transOutput');
+    // Better transliteration / phrase translation
+    const translateInput = document.getElementById('translateInput');
+    const translateMode = document.getElementById('translateMode');
+    const translateOutput = document.getElementById('translateOutput');
 
-    const map = [
-      ['aa','आ'], ['ii','ई'], ['uu','ऊ'], ['ai','ऐ'], ['au','औ'],
-      ['kh','ख'], ['gh','घ'], ['chh','छ'], ['ch','च'], ['jh','झ'], ['th','थ'], ['dh','ध'], ['ph','फ'], ['bh','भ'],
-      ['sh','श'], ['gn','ज्ञ'], ['tr','त्र'], ['k','क'], ['g','ग'], ['c','क'], ['j','ज'], ['t','त'], ['d','द'], ['n','न'], ['p','प'], ['b','ब'], ['m','म'],
-      ['y','य'], ['r','र'], ['l','ल'], ['v','व'], ['s','स'], ['h','ह'],
-      ['a','अ'], ['i','इ'], ['u','उ'], ['e','ए'], ['o','ओ']
+    const phraseMap = [
+      ['namaste', 'नमस्ते'],
+      ['namaskar', 'नमस्कार'],
+      ['hello', 'नमस्ते'],
+      ['hi', 'नमस्ते'],
+      ['peace', 'शान्तिः'],
+      ['knowledge', 'विद्या'],
+      ['wisdom', 'प्रज्ञा'],
+      ['truth', 'सत्यम्'],
+      ['dharma', 'धर्मः'],
+      ['teacher', 'आचार्यः'],
+      ['student', 'शिष्यः'],
+      ['study', 'अध्ययनम्'],
+      ['life', 'जीवनम्'],
+      ['light', 'दीपः'],
+      ['heart', 'हृदयम्'],
+      ['mind', 'मनः'],
+      ['good', 'शुभम्'],
+      ['thank you', 'धन्यवादः'],
+      ['my name is', 'मम नाम'],
+      ['i am', 'अहम् अस्मि'],
+      ['learn', 'अधिगच्छ'],
+      ['book', 'पुस्तकम्'],
+      ['morning', 'प्रातः'],
+      ['river', 'नदी'],
+      ['ganga', 'गङ्गा'],
+      ['aarti', 'आरती'],
+      ['shloka', 'श्लोकः']
     ];
 
-    function transliterate(text){
+    const romanMap = [
+      ['ksh', 'क्ष'], ['jn', 'ज्ञ'], ['tr', 'त्र'], ['sh', 'श'], ['chh', 'छ'],
+      ['aa', 'आ'], ['ii', 'ई'], ['uu', 'ऊ'], ['ai', 'ऐ'], ['au', 'औ'],
+      ['kh', 'ख'], ['gh', 'घ'], ['ch', 'च'], ['jh', 'झ'], ['th', 'थ'], ['dh', 'ध'], ['ph', 'फ'], ['bh', 'भ'],
+      ['a', 'अ'], ['i', 'इ'], ['u', 'उ'], ['e', 'ए'], ['o', 'ओ'],
+      ['k', 'क'], ['g', 'ग'], ['j', 'ज'], ['t', 'त'], ['d', 'द'], ['n', 'न'], ['p', 'प'], ['b', 'ब'], ['m', 'म'],
+      ['y', 'य'], ['r', 'र'], ['l', 'ल'], ['v', 'व'], ['s', 'स'], ['h', 'ह']
+    ];
+
+    function transliterateRoman(text) {
       let out = text.toLowerCase();
-      map.forEach(([latin, dev]) => {
-        out = out.split(latin).join(dev);
+      romanMap.forEach(([src, dst]) => {
+        out = out.split(src).join(dst);
       });
-      out = out.replace(/\bnamo\b/g, 'नमो');
-      out = out.replace(/\bnamah\b/g, 'नमः');
-      out = out.replace(/\bshanti\b/g, 'शान्ति');
-      out = out.replace(/\bgita\b/g, 'गीता');
-      out = out.replace(/\bdharma\b/g, 'धर्म');
-      out = out.replace(/\bjnana\b/g, 'ज्ञान');
-      out = out.replace(/\bsurya\b/g, 'सूर्य');
+      out = out
+        .replace(/\bnamo\b/g, 'नमो')
+        .replace(/\bnamah\b/g, 'नमः')
+        .replace(/\bshanti\b/g, 'शान्ति')
+        .replace(/\bgita\b/g, 'गीता')
+        .replace(/\bdharma\b/g, 'धर्म')
+        .replace(/\bjnana\b/g, 'ज्ञान')
+        .replace(/\bsurya\b/g, 'सूर्य')
+        .replace(/\bganga\b/g, 'गङ्गा')
+        .replace(/\baarti\b/g, 'आरती')
+        .replace(/\bom\b/g, 'ॐ');
       return out;
     }
 
-    transInput.addEventListener('input', () => {
-      const value = transInput.value.trim();
-      transOutput.textContent = value ? transliterate(value) : 'देवनागरी आउटपुट यहाँ दिखाई देगा।';
+    function phraseTranslate(text) {
+      let out = ' ' + text.toLowerCase() + ' ';
+      phraseMap
+        .sort((a, b) => b[0].length - a[0].length)
+        .forEach(([src, dst]) => {
+          const re = new RegExp(src.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+          out = out.replace(re, ' ' + dst + ' ');
+        });
+      out = out.replace(/\s+/g, ' ').trim();
+      return out || 'अनुवाद उपलब्ध नहीं है।';
+    }
+
+    function isDevanagari(text){
+      return /[\u0900-\u097F]/.test(text);
+    }
+
+    function updateTranslation(){
+      const input = translateInput.value.trim();
+      if (!input) {
+        translateOutput.textContent = 'देवनागरी output यहाँ दिखेगा।';
+        return;
+      }
+
+      const mode = translateMode.value;
+      let result = '';
+
+      if (mode === 'transliterate') {
+        result = transliterateRoman(input);
+      } else if (mode === 'translate') {
+        result = phraseTranslate(input);
+      } else {
+        if (isDevanagari(input)) {
+          result = input;
+        } else if (/[a-zA-Z]/.test(input) && !/\b(the|is|and|for|with|to|of)\b/i.test(input)) {
+          result = transliterateRoman(input);
+        } else {
+          result = phraseTranslate(input);
+        }
+      }
+
+      translateOutput.textContent = result;
+    }
+
+    translateInput.addEventListener('input', updateTranslation);
+    translateMode.addEventListener('change', updateTranslation);
+
+    document.getElementById('sampleEnglish').addEventListener('click', () => {
+      translateInput.value = 'my name is abhishek and I love knowledge peace and dharma';
+      translateMode.value = 'translate';
+      updateTranslation();
     });
 
-    // Shloka of the day
-    const shlokas = [
-      {
-        s: 'विद्या ददाति विनयम्।',
-        m: 'Knowledge gives humility, steadiness, and respect.'
-      },
-      {
-        s: 'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।',
-        m: 'You have the right to action, not to the fruits alone.'
-      },
-      {
-        s: 'सत्यमेव जयते।',
-        m: 'Truth alone triumphs.'
-      },
-      {
-        s: 'उद्यमेन हि सिद्ध्यन्ति कार्याणि न मनोरथैः।',
-        m: 'Work succeeds through effort, not merely through wish.'
+    document.getElementById('sampleHindi').addEventListener('click', () => {
+      translateInput.value = 'मेरा नाम अभिषेक है और मुझे विद्या, शान्ति और धर्म प्रिय हैं';
+      translateMode.value = 'translate';
+      updateTranslation();
+    });
+
+    document.getElementById('copyTranslation').addEventListener('click', async () => {
+      const text = translateOutput.textContent.trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        alert('Copied.');
+      }catch(e){
+        alert('Copy not available.');
       }
+    });
+
+    // Shlokas
+    const shlokas = [
+      { s:'विद्या ददाति विनयम्।', m:'Knowledge gives humility, steadiness, and respect.' },
+      { s:'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।', m:'You have the right to action, not to the fruits alone.' },
+      { s:'सत्यमेव जयते।', m:'Truth alone triumphs.' },
+      { s:'उद्यमेन हि सिद्ध्यन्ति कार्याणि न मनोरथैः।', m:'Work succeeds through effort, not only wish.' }
     ];
     let shlokaIndex = 0;
     const shlokaText = document.getElementById('shlokaText');
     const shlokaMeaning = document.getElementById('shlokaMeaning');
+
     document.getElementById('nextShloka').addEventListener('click', () => {
       shlokaIndex = (shlokaIndex + 1) % shlokas.length;
       shlokaText.textContent = shlokas[shlokaIndex].s;
       shlokaMeaning.textContent = shlokas[shlokaIndex].m;
     });
+
     document.getElementById('copyShloka').addEventListener('click', async () => {
       try{
         await navigator.clipboard.writeText(`${shlokaText.textContent} — ${shlokaMeaning.textContent}`);
-        alert('Shloka copied!');
+        alert('Shloka copied.');
       }catch(e){
-        alert('Copy not available in this browser.');
+        alert('Copy not available.');
       }
     });
 
-    // Chat demo
+    // AI assistant
     const chatWindow = document.getElementById('chatWindow');
     const chatInput = document.getElementById('chatInput');
 
-    function addMsg(text, type){
+    function addMsg(text, who){
       const div = document.createElement('div');
-      div.className = `msg ${type}`;
+      div.className = `msg ${who}`;
       div.textContent = text;
       chatWindow.appendChild(div);
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
-    function botReply(q){
-      const t = q.toLowerCase();
-      if (t.includes('shlok') || t.includes('श्लोक')) return 'Try the “श्लोक of the day” section above — it is designed as a quick learning module.';
-      if (t.includes('keyboard') || t.includes('कीबोर्ड')) return 'Your Sanskrit keyboard idea can become a feature-rich input system with transliteration, suggestions, and learning support.';
-      if (t.includes('firebase') || t.includes('backend')) return 'This UI is ready for Firebase auth, Firestore, blog CMS, and file storage integration.';
-      if (t.includes('hello') || t.includes('namaste') || t.includes('नमस्ते')) return 'नमस्ते! I can help with Sanskrit learning, UI ideas, and portfolio structure.';
-      return 'Great idea. This website already supports a premium front-end experience, and the next step is wiring in your real data and content.';
+    function smartReply(q) {
+      const t = q.toLowerCase().trim();
+
+      if (/who are you|what are you|your name|तुम कौन|आप कौन/.test(t)) {
+        return 'मैं आपका Sanskrit website assistant हूँ। I help with shlokas, grammar, translation, project planning, and site structure.';
+      }
+
+      if (/what can you do|help me|help with|कैसे|मदद/.test(t)) {
+        return 'I can explain Sanskrit concepts, rewrite content, improve this website, suggest design ideas, and help structure your portfolio.';
+      }
+
+      if (/shloka|श्लोक|gita|गीता/.test(t)) {
+        return 'For a strong starting point, use: “कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।” It teaches action, focus, and discipline.';
+      }
+
+      if (/grammar|व्याकरण|sandhi|धातु|samasa/.test(t)) {
+        return 'Sanskrit grammar works through clear rules, sound patterns, and precise structure. I can help you make a beginner-friendly explanation page for any topic.';
+      }
+
+      if (/translate|translation|अनुवाद|transliterate|लिप्यंतरण/.test(t)) {
+        return 'Use the translator section above for Roman text and common phrase conversion. It is designed for quick everyday use.';
+      }
+
+      if (/keyboard|कीबोर्ड/.test(t)) {
+        return 'Your Sanskrit keyboard can become a polished product with transliteration, predictive suggestions, shortcut words, and a learning dictionary.';
+      }
+
+      if (/ganga|गंगा|aarti|आरती|varanasi|काशी|ghat|घाट/.test(t)) {
+        return 'Kashi and Ganga visuals work best when the layout feels calm, spiritual, and spacious. The gallery section already follows that style.';
+      }
+
+      if (/website|site|portfolio|ui|design/.test(t)) {
+        return 'This site now has a stronger structure: clean navigation, images, gallery, tools, AI, blogs, social cards, and contact flow.';
+      }
+
+      if (/note|download|pdf|cv|resume/.test(t)) {
+        return 'You can connect the download buttons to PDF files later, and add a notes library or resource center with backend storage.';
+      }
+
+      return 'I can help with Sanskrit learning, website design, project planning, transliteration, and educational content. Try a topic like grammar, shloka, keyboard, or gallery.';
     }
 
     function sendChat(){
@@ -1709,12 +1872,12 @@
       if(!q) return;
       addMsg(q, 'user');
       chatInput.value = '';
-      setTimeout(() => addMsg(botReply(q), 'bot'), 380);
+      setTimeout(() => addMsg(smartReply(q), 'bot'), 350);
     }
 
     document.getElementById('sendChat').addEventListener('click', sendChat);
-    chatInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') sendChat();
+    chatInput.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') sendChat();
     });
 
     // Contact form demo
@@ -1722,19 +1885,21 @@
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
+
       if(!name || !email || !message){
         alert('Please fill all contact fields.');
         return;
       }
-      alert(`Thanks, ${name}. Your message is ready to connect to backend submission.`);
+
+      alert(`Thanks, ${name}. Your message is ready to connect to a backend.`);
     });
 
-    // Flute ambience with Web Audio API
+    // Flute ambience
     let audioCtx = null;
     let playing = false;
     let musicTimer = null;
 
-    function playNote(freq, start, duration, type='sine', gainValue=0.035){
+    function playNote(freq, start, duration, type='sine', gainValue=0.03){
       if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
@@ -1745,8 +1910,9 @@
 
       osc.type = type;
       osc.frequency.value = freq;
+
       gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + start);
-      gain.gain.exponentialRampToValueAtTime(gainValue, audioCtx.currentTime + start + 0.06);
+      gain.gain.exponentialRampToValueAtTime(gainValue, audioCtx.currentTime + start + 0.05);
       gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + start + duration);
 
       osc.connect(filter);
@@ -1760,44 +1926,40 @@
     function startMusic(){
       if(playing) return;
       playing = true;
-      const sequence = [523.25, 587.33, 659.25, 587.33, 523.25, 440, 523.25];
+
+      const notes = [523.25, 587.33, 659.25, 587.33, 523.25, 440, 523.25];
       let i = 0;
 
       musicTimer = setInterval(() => {
-        const base = sequence[i % sequence.length];
-        playNote(base, 0, 1.1, 'sine', 0.03);
+        const base = notes[i % notes.length];
+        playNote(base, 0, 1.05, 'sine', 0.03);
         playNote(base * 2, 0.02, 0.55, 'triangle', 0.01);
         i++;
       }, 900);
 
-      document.getElementById('musicBtn').textContent = '❚❚ Stop Flute Ambience';
-      document.getElementById('musicBtn2').textContent = '⏸ Stop';
+      document.getElementById('musicBtn').textContent = '❚❚ Stop Music';
     }
 
     function stopMusic(){
       playing = false;
       clearInterval(musicTimer);
       musicTimer = null;
-      document.getElementById('musicBtn').textContent = '♪ Play Flute Ambience';
-      document.getElementById('musicBtn2').textContent = '🎵 Music';
+      document.getElementById('musicBtn').textContent = '🎵 Music';
     }
 
-    function toggleMusic(){
+    document.getElementById('musicBtn').addEventListener('click', () => {
       if(playing) stopMusic();
       else startMusic();
-    }
+    });
 
-    document.getElementById('musicBtn').addEventListener('click', toggleMusic);
-    document.getElementById('musicBtn2').addEventListener('click', toggleMusic);
-
-    // Particles canvas
+    // Particles
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let w, h, particles;
 
-    const glyphs = ['ॐ', 'अ', 'क', 'ग', 'श', 'त्र', 'ज्ञ', 'ध', 'स', 'ह'];
+    const glyphs = ['ॐ', 'अ', 'क', 'ग', 'श', 'त्र', 'ज्ञ', 'ध', 'स', 'ह', 'ग', 'ङ'];
 
-    function resize(){
+    function resizeCanvas(){
       w = canvas.width = window.innerWidth * devicePixelRatio;
       h = canvas.height = window.innerHeight * devicePixelRatio;
       canvas.style.width = window.innerWidth + 'px';
@@ -1806,7 +1968,7 @@
     }
 
     function initParticles(){
-      const count = Math.min(88, Math.floor(window.innerWidth / 14));
+      const count = Math.min(86, Math.floor(window.innerWidth / 14));
       particles = Array.from({length: count}, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -1831,13 +1993,11 @@
         if(p.y < -20) p.y = h + 20;
         if(p.y > h + 20) p.y = -20;
 
-        // Dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * (1 + Math.sin(p.a) * .25), 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,255,255,.65)';
+        ctx.fillStyle = 'rgba(255,255,255,.60)';
         ctx.fill();
 
-        // Glyphs, sometimes
         if(p.s){
           ctx.font = `${12 * devicePixelRatio}px "Noto Serif Devanagari", serif`;
           ctx.fillStyle = 'rgba(255,255,255,.08)';
@@ -1848,9 +2008,12 @@
       requestAnimationFrame(draw);
     }
 
-    window.addEventListener('resize', resize);
-    resize();
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
     draw();
+
+    // Init translation demo
+    updateTranslation();
   </script>
 </body>
 </html>
